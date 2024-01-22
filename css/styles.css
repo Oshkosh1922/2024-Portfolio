@@ -7,50 +7,27 @@ body, html {
 
 .side-bar {
     position: fixed;
-    width: 75%; /* Bar covers 75% of the page width */
-    height: 200px; /* Bar height set to 200px */
-    background-color: #333; /* Example color, adjust as needed */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Adding some shadow for depth */
-    border-radius: 10px; /* Rounded corners */
+    width: 75%;
+    height: 200px;
+    background-color: #333;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    border-radius: 10px;
     z-index: 2000;
     transition: transform 1.0s ease;
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
-    font-size: 20px; /* Adjust as needed */
-  
+    font-size: 20px;
 }
+
 .left {
-    transition: transform 1.0s ease; /* Adjust the transition as necessary */
+    transition: transform 1.0s ease;
 }
 
-
-/* Positioning the bars at different heights */
-#bar1 { top: 5%; } /* Adjust the percentage as needed */
-#bar2 { top: 35%; } /* Positioned a third of the way down */
-#bar3 { top: 65%; } /* Further down the page */
-
-@media screen and (max-width: 768px) { /* Adjust the breakpoint as needed */
-    .side-bar {
-        width: 85%; /* Bars take full width on smaller screens */
-        height: 200px; /* Adjust the height for smaller screens */
-        top: unset; /* Resetting top positioning */
-    }
-
-    /* Adjusting the positions of the bars for smaller screens */
-    #bar1 { top: 10%; }
-    #bar2 { top: 40%; }
-    #bar3 { top: 70%; }
-}
-footer {
-    position: fixed;
-    left: 50%;
-    bottom: 10px;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 15px; /* Adjust the gap between icons */
-}
+#bar1 { top: 5%; }
+#bar2 { top: 35%; }
+#bar3 { top: 65%; }
 
 footer {
     position: fixed;
@@ -59,178 +36,268 @@ footer {
     transform: translateX(-50%);
     display: flex;
     gap: 15px;
-    z-index: 2000; /* Higher than the sliding bars */
-}
-
-
-footer img {
-    height: 24px; /* Adjust the size of Twitter icon */
-    width: auto;
+    z-index: 2000;
 }
 
 footer a {
-    color: lightgreen; /* Change the color for Font Awesome icons */
-    font-size: 24px; /* Adjust the size as needed */
+    color: rgb(145, 237, 145);
+    font-size: 24px;
     text-decoration: none;
 }
 
-footer a img {
-    filter: brightness(0) saturate(100%) invert(70%) sepia(34%) saturate(600%) hue-rotate(80deg) brightness(100%) contrast(88%);
-    /* This filter is an example to turn images to a shade of green */
-}
 html {
     scroll-behavior: smooth;
 }
+
 .button-container {
     position: fixed;
     right: 0;
     top: 50%;
     transform: translateY(-50%);
-    z-index: 2000; /* To ensure it's above other content */
-    width: 25%; /* Remaining space on desktop */
+    z-index: 2000;
+    width: 25%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 100px; /* Spacing between buttons */
-    
+    gap: 100px;
 }
 
 .button-container a {
-   
-    font-size: 24px; /* Adjust the size as needed */
-    text-decoration: none; /* Removes underline from links */
+    font-size: 24px;
+    text-decoration: none;
     color: lightgreen;
-   
-}
-.button-container a:hover {
-    color: darkgreen; /* Slightly darker shade on hover */
-    
 }
 
-@media screen and (max-width: 768px) {
-    .button-container {
-        width: 15%; /* Adjusting for mobile */
-    }
+.button-container a:hover {
+    color: darkgreen;
 }
+
 #spinning-letters {
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 1; /* Behind other content but above the background */
+    z-index: 1;
 }
 
 .letter {
     display: inline-block;
-    font-family: 'Your Futuristic Font', sans-serif; /* Use a futuristic font */
-    font-size: 65px; /* Adjust size as needed */
+    font-family: 'Orbitron', sans-serif;
+    font-size: 65px;
     margin: 0 10px;
-    color: rgb(215, 255, 215); 
+    color: rgb(215, 255, 215);
     animation: spin 5s infinite linear;
-    font-family: 'Orbitron', sans-serif;/* Choose your color */
-    /* Add more styling to make it cubic and modern */
-}
-@keyframes spin {
-    0% { transform: rotateX(0); }
-    100% { transform: rotateX(360deg); }
-}
-@media screen and (max-width: 768px) {
-    .letter {
-        font-size: 3vw; /* Adjust the value as needed */
-    }
 }
 
+@keyframes spin {
+0% { transform: rotateX(0); }
+100% { transform: rotateX(360deg); }
+}
 
 .footer-text {
-    font-family: 'Orbitron', sans-serif; /* Same as your spinning letters */
-    font-size: 12px; /* Adjust the size as needed */
-    color: rgb(215, 255, 215); /* Adjust color as needed */
-    text-align: center;
-    margin-top: 10px; /* Adds space above the text */
+font-family: 'Orbitron', sans-serif;
+font-size: 12px;
+color: rgb(215, 255, 215);
+text-align: center;
+margin-top: 10px;
 }
+
 .icon-container {
-    position: relative;
+position: relative;
 }
 
 .popup-bubble {
-    position: absolute;
-    display: none;
-    width: 200px; /* Adjust as needed */
-    background-color: white;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    /* Position the bubble as needed */
+position: absolute;
+display: none;
+width: 200px;
+background-color: rgb(58, 58, 58);
+padding: 10px;
+border-radius: 5px;
+box-shadow: 0 4px 8px rgba(119, 248, 255, 0.644);
+}
+.popup-bubble .typing-text {
+    color: rgb(178, 255, 178); /* Replace with your desired color */
+    /* Other styling properties */
 }
 
+
 .school-info {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+display: flex;
+align-items: center;
+gap: 10px;
 }
 
 .school-logo {
-    width: 30px; /* Adjust as needed */
-    height: auto;
+width: 80px;
+height: auto;
 }
 
 .school-icon:hover + .popup-bubble {
-    display: block;
+display: block;
 }
-.popup-bubble {
-    max-width: 90%; /* Limits the width */
-    width: auto; /* Adjusts width based on content */
-    overflow: hidden; /* Prevents content from spilling out */
-    word-wrap: break-word; /* Ensures long words don't overflow */
-}
-
 
 .popup-bubble.visible {
-    opacity: 1;
-    transform: translateY(0);
+opacity: 1;
+transform: translateY(0);
 }
+
 .button-container .school-icon {
-    position: relative;
-    /* ... other styles ... */
+position: relative;
 }
+
+
 .button-container .popup-bubble {
     position: absolute;
-    bottom: 100%; /* Adjust this value to position the bubble above the icon */
-    left: 50%;
-    transform: translateX(-50%) scale(0);
-    transform-origin: bottom center;
+    top: 50%; 
+    left: -210px; 
+    transform: translateY(-50%) scale(0); 
+    transform-origin: bottom right;
     transition: transform 0.3s ease;
     display: block;
     opacity: 0;
     visibility: hidden;
+    width: 200px;
+    max-height: 90vh; 
+    overflow-y: auto;
 }
 
 .button-container a:hover + .popup-bubble {
-    transform: translateX(-50%) scale(1);
+    transform: translateY(-50%) scale(1);
     opacity: 1;
     visibility: visible;
 }
+
 .bubble-icon {
-    width: 20px; /* Adjust as needed */
-    height: auto;
-    margin-right: 5px; /* Space between icon and text */
-    /* Additional styling if needed */
-}
-.button-container a {
-    position: relative;
-}
-@media screen and (max-width: 768px) {
-    .button-container .popup-bubble {
-        width: 150px; /* Smaller width for mobile */
-        bottom: 120%; /* Adjust positioning */
-    }
-}
-.typing-text {
-    font-family: 'Orbitron', sans-serif; /* Apply the Orbitron font */
-    font-weight: bold; /* Make the text bold */
-    /* Add any other styling you need */
+width: 80px;
+height: auto;
+margin-right: 5px;
 }
 
+.button-container a {
+position: relative;
+}
+
+.typing-text {
+font-family: 'Orbitron', sans-serif;
+font-weight: bold;
+}
+
+.bar-button {
+position: absolute;
+bottom: 0px;
+right: 0px;
+}
+
+.bar-button img {
+width: 150px;
+height: auto;
+}
+.line::before {
+    content: '•'; 
+    color: rgb(145, 237, 145); 
+    font-size: 40px; 
+    margin-right: 10px; 
+    vertical-align: middle;
+    display: inline-block;
+}
+/* The Modal (background) */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    padding-top: 50px; /* Reduced padding for better positioning */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9); /* Black with opacity */
+}
+
+/* Modal Content (Image) */
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 90%; /* Increase width */
+    max-width: none; /* Remove max-width constraint */
+}
+
+/* Caption of Modal Image */
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+
+/* The Close Button */
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+.side-bar {
+width: 85%;
+height: 200px;
+top: unset;
+}
+#bar1 { top: 10%; }
+#bar2 { top: 40%; }
+#bar3 { top: 70%; }
+
+.footer-text {
+    font-size: 10px;
+    white-space: nowrap;
+}
+
+.button-container a {
+    z-index: 1;
+}
+
+
+.letter {
+    font-size: 3vw;
+}
+
+.button-container .popup-bubble {
+    position: fixed; /* Fixed to the viewport */
+    top: 50%; /* Center vertically */
+    left: -220%; /* Center horizontally */
+    transform: translate(-50%, -50%) scale(1); /* Adjust for initial state */
+    width: 225px; /* Responsive width */
+    max-height: 80vh; /* Responsive max height */
+    overflow-y: auto; /* Allow scroll for overflow content */
+    opacity: 0; /* Ensure visibility */
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+.button-container a:hover + .popup-bubble,
+.button-container a:focus + .popup-bubble { /* Added focus for accessibility */
+    opacity: 1; /* Show on hover or focus */
+    visibility: visible; /* Show on hover or focus */
+}
+}
+   
 
 
 
