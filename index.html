@@ -10,6 +10,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
 
 
+    <nav>
+        <ul>
+
+            <!-- Add more navigation items here if needed -->
+        </ul>
+    </nav>
+    
 </head>
 <body>
     <div id="spinning-letters">
@@ -23,22 +30,46 @@
     
     
 
-    <div id="bar1" class="side-bar left"></div>
-    <div id="bar2" class="side-bar right"></div>
-    <div id="bar3" class="side-bar left"></div>
+    <div id="bar1" class="side-bar left">
+        <a href="../portfolio.html" class="bar-button">
+            <img src="../images/work.png" alt="Button">
+        </a>
+    </div>
+    
+    <div id="bar2" class="side-bar right">    <a href="#" class="bar-button">
+        <img src="images/workbtn.png" alt="Button">
+    </a></div>
+    <div id="bar3" class="side-bar left">    <a href="#" class="bar-button">
+        <img src="images/workbtn.png" alt="Button">
+    </a></div>
 
     <div class="button-container">
         <a href="#" class="school-icon"><i class="fa-solid fa-school"></i></a>
         <div class="popup-bubble">
-            <img src="images/uwo.png" alt="School Logo" class="bubble-icon">
-            <p class="typing-text"></p>
-            
+            <!-- First School Section -->
+            <div class="school-section">
+                <img src="images/uwo.png" alt="School Logo" class="bubble-icon">
+                <p class="typing-text" id="text-uwo"></p>
+            </div>
+            <!-- Second School Section -->
+            <div class="school-section">
+                <img src="images/fvtc.jpeg" alt="School Logo" class="bubble-icon">
+                <p class="typing-text" id="text-fvtc"></p>
+            </div>
         </div>
-        
-        <a href="link-to-resume"><i class="fa-solid fa-file"></i></a>
+        <div id="resumeModal" class="modal">
+            <span class="close">&times;</span>
+            <img class="modal-content" id="resumeImage" src="images/resume.png" alt="Resume">
+            <div id="caption">My Resume</div>
+        </div>
+        <a href="#" id="resume-icon"><i class="fa-solid fa-file"></i></a>
         <a href="link-for-payments"><i class="fa-solid fa-credit-card"></i></a>
-        <a href="link-to-calendly"><i class="fa-solid fa-calendar-days"></i></a>
+        <!-- Updated Calendly Link -->
+        <a href="https://calendly.com/softwaremike/meeting" target="_blank"><i class="fa-solid fa-calendar-days"></i></a>
     </div>
+    
+
+    
 
     
     
