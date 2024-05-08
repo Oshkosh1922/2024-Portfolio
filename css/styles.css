@@ -183,15 +183,21 @@ font-weight: bold;
 }
 
 .bar-button {
-position: absolute;
-bottom: 0px;
-right: 0px;
+    background-color: rgb(145, 237, 145); 
+    border: none;
+    color: #151313; 
+    padding: 10px 20px;
+    font-size: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+.bar-button:hover {
+    background-color: darkgreen; /* Darker green on hover */
+    transform: scale(1.05); /* Slight increase in size on hover */
 }
 
-.bar-button img {
-width: 150px;
-height: auto;
-}
+
 .line::before {
     content: '•'; 
     color: rgb(145, 237, 145); 
@@ -256,14 +262,14 @@ height: auto;
 
 /* Media Queries */
 @media screen and (max-width: 768px) {
-.side-bar {
-width: 85%;
-height: 200px;
-top: unset;
+    .side-bar {
+        width: 85%; /* Slightly more width on smaller screens */
+        transition: transform 0.5s ease; /* Faster transition on mobile */
+    }
+    #bar1, #bar2, #bar3 {
+        transform: translateX(-100%); /* Ensure side bars are initially off-screen on mobile */
+    }
 }
-#bar1 { top: 10%; }
-#bar2 { top: 40%; }
-#bar3 { top: 70%; }
 
 .footer-text {
     font-size: 10px;
@@ -296,7 +302,7 @@ top: unset;
     opacity: 1; /* Show on hover or focus */
     visibility: visible; /* Show on hover or focus */
 }
-}
+
    
 
 
