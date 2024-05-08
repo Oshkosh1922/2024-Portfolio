@@ -95,26 +95,20 @@ const socket = new WebSocket('ws://localhost:8080');
 document.addEventListener('DOMContentLoaded', function() {
     const aboutBtn = document.getElementById('about-btn');
     const aboutText = document.getElementById('about-text');
-    const aboutImage = document.getElementById('about-image');
 
-    aboutBtn.addEventListener('click', function() {
+    aboutBtn.addEventListener('click', function(event) {
+        event.stopPropagation(); // Prevent any parent handlers from being executed
+
         // Hide the button
         aboutBtn.style.display = 'none';
 
-        // Show and animate the image
-        aboutImage.style.display = 'block';
+        // Show the text and start transition
+        aboutText.style.display = 'block';
         setTimeout(() => {
-            aboutImage.classList.add('visible-image');
-        }, 100); // Slight delay
-
-        // After image, show and animate the text
-        setTimeout(() => {
-            aboutText.style.display = 'block';
             aboutText.classList.add('visible-text');
-        }, 2100); // Wait for image to finish rising
+        }, 100); // slight delay to ensure the display change has taken effect
     });
 });
-
 
 
 
