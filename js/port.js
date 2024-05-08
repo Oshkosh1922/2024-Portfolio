@@ -109,6 +109,42 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 100); // slight delay to ensure the display change has taken effect
     });
 });
+document.addEventListener('DOMContentLoaded', function() {
+    // Consolidate all modal-related functionalities
+    const emailModal = document.getElementById("emailModal");
+    const emailIcon = document.getElementById("email-icon");
+    const closeButtons = document.querySelectorAll('.close'); // This will get all close buttons
+
+    emailIcon.onclick = function() {
+        emailModal.style.display = "block";
+    };
+
+    closeButtons.forEach(button => {
+        button.onclick = function() {
+            button.closest('.modal').style.display = "none"; // This makes sure the closest modal to the button gets closed
+        };
+    });
+
+    window.onclick = function(event) {
+        if (event.target === emailModal) {
+            emailModal.style.display = "none";
+        }
+    };
+
+    const form = document.getElementById("contact-form");
+    form.onsubmit = function(event) {
+        event.preventDefault(); // Stop the form from submitting normally
+        sendEmail(); // Send the email function
+    };
+});
+
+function sendEmail() {
+    var email = document.getElementById("email").value;
+    var message = document.getElementById("message").value;
+    // Normally, you would need server-side support to send an email.
+    // However, as you requested a simple client-side solution:
+    window.location.href = `mailto:michaelharris.tech@gmail.com?subject=Message from ${email}&body=${message}`;
+}
 
 
 

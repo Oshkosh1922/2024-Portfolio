@@ -13,7 +13,7 @@
     <nav>
         <ul>
 
-            <!-- Add more navigation items here if needed -->
+            
         </ul>
     </nav>
     
@@ -26,7 +26,9 @@
         <div class="letter">R</div>
         <div class="letter">I</div>
         <div class="letter">S</div>
+        
     </div>
+
     
     
 
@@ -50,12 +52,12 @@
     <div class="button-container">
         <a href="#" class="school-icon"><i class="fa-solid fa-school"></i></a>
         <div class="popup-bubble">
-            <!-- First School Section -->
+           
             <div class="school-section">
                 <img src="images/uwo.png" alt="School Logo" class="bubble-icon">
                 <p class="typing-text" id="text-uwo"></p>
             </div>
-            <!-- Second School Section -->
+            
             <div class="school-section">
                 <img src="images/fvtc.jpeg" alt="School Logo" class="bubble-icon">
                 <p class="typing-text" id="text-fvtc"></p>
@@ -67,8 +69,26 @@
             <div id="caption">My Resume</div>
         </div>
         <a href="#" id="resume-icon"><i class="fa-solid fa-file"></i></a>
-        <a href="link-for-payments"><i class="fa-solid fa-credit-card"></i></a>
-        <!-- Updated Calendly Link -->
+        <!-- Email contact icon with modal trigger -->
+<a href="#" id="email-icon"><i class="fa-solid fa-envelope"></i></a>
+
+<!-- The Modal for email contact -->
+<div id="emailModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <form id="contact-form">
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+
+            <button type="submit">Send Email</button>
+        </form>
+    </div>
+</div>
+
+       
         <a href="https://calendly.com/softwaremike/meeting" target="_blank"><i class="fa-solid fa-calendar-days"></i></a>
     </div>
     

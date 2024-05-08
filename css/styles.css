@@ -317,7 +317,29 @@ font-weight: bold;
     opacity: 1; /* Fully visible */
 }
 
-   
+input[type="email"], textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/* Style the submit button */
+button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+button[type="submit"]:hover {
+    opacity: 0.8;
+}
 
 
 
