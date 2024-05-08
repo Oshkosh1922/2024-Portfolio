@@ -302,6 +302,32 @@ font-weight: bold;
     opacity: 1; /* Show on hover or focus */
     visibility: visible; /* Show on hover or focus */
 }
+#about-image {
+    transition: transform 2s, opacity 2s;
+    transform: translateY(20px); /* Start lower */
+    opacity: 0;
+}
+
+.visible-image {
+    transform: translateY(0); /* End at normal position */
+    opacity: 1;
+}
+
+.about-text {
+    color: rgb(145, 237, 145); /* Light green color */
+    font-size: 16px;
+    transition: opacity 2s, transform 2s 1s; /* Delay text transition to wait for image */
+    opacity: 0;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+}
+
+.visible-text {
+    opacity: 1;
+    transform: translateY(-10px); /* Slightly rise as it fades in */
+}
+
 
    
 

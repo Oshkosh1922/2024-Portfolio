@@ -1,7 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Initially hide side bars
+    // Force hide side bars on initial load
     ['bar1', 'bar2', 'bar3'].forEach(barId => {
-        document.getElementById(barId).style.transform = 'translateX(-100%)';
+        const bar = document.getElementById(barId);
+        // Use transform to slide off-screen to the left or modify as per your hiding logic
+        bar.style.transform = 'translateX(-100%)';
     });
 });
 
@@ -88,6 +90,31 @@ window.onclick = function(event) {
     }
 }
 const socket = new WebSocket('ws://localhost:8080');
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const aboutBtn = document.getElementById('about-btn');
+    const aboutText = document.getElementById('about-text');
+    const aboutImage = document.getElementById('about-image');
+
+    aboutBtn.addEventListener('click', function() {
+        // Hide the button
+        aboutBtn.style.display = 'none';
+
+        // Show and animate the image
+        aboutImage.style.display = 'block';
+        setTimeout(() => {
+            aboutImage.classList.add('visible-image');
+        }, 100); // Slight delay
+
+        // After image, show and animate the text
+        setTimeout(() => {
+            aboutText.style.display = 'block';
+            aboutText.classList.add('visible-text');
+        }, 2100); // Wait for image to finish rising
+    });
+});
+
 
 
 
