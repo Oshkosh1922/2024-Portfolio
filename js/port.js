@@ -1,16 +1,13 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Force hide side bars on initial load
     ['bar1', 'bar2', 'bar3'].forEach(barId => {
         const bar = document.getElementById(barId);
-        // Use transform to slide off-screen to the left or modify as per your hiding logic
         bar.style.transform = 'translateX(-100%)';
     });
 });
 
-// Function to control the sliding of side bars based on scroll position
 function controlSideBars() {
     const scrollPosition = window.scrollY;
-    const triggerPoints = [200, 800, 1400]; // Adjust these values as needed
+    const triggerPoints = [200, 800, 1400];
 
     triggerPoints.forEach((point, index) => {
         const bar = document.getElementById(`bar${index + 1}`);
@@ -18,10 +15,8 @@ function controlSideBars() {
     });
 }
 
-// Add scroll event listener
 window.addEventListener('scroll', controlSideBars);
 
-// School information for typing effect
 const schools = [
     {
         elementId: 'text-uwo',
@@ -63,7 +58,6 @@ function stopTypingEffects() {
     schools.forEach(school => document.getElementById(school.elementId).innerHTML = '');
 }
 
-// Event listeners for school icon
 document.querySelector('.school-icon').addEventListener('mouseover', function() {
     stopTypingEffects();
     schools.forEach(startTypingEffect);
@@ -71,7 +65,6 @@ document.querySelector('.school-icon').addEventListener('mouseover', function() 
 
 document.querySelector('.school-icon').addEventListener('mouseout', stopTypingEffects);
 
-// Resume modal functionality
 const modal = document.getElementById("resumeModal");
 const btn = document.getElementById("resume-icon");
 const span = document.getElementsByClassName("close")[0];
@@ -89,31 +82,27 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
 }
-const socket = new WebSocket('ws://localhost:8080');
 
+const socket = new WebSocket('ws://localhost:8080');
 
 document.addEventListener('DOMContentLoaded', function() {
     const aboutBtn = document.getElementById('about-btn');
     const aboutText = document.getElementById('about-text');
 
     aboutBtn.addEventListener('click', function(event) {
-        event.stopPropagation(); // Prevent any parent handlers from being executed
-
-        // Hide the button
+        event.stopPropagation();
         aboutBtn.style.display = 'none';
-
-        // Show the text and start transition
         aboutText.style.display = 'block';
         setTimeout(() => {
             aboutText.classList.add('visible-text');
-        }, 100); // slight delay to ensure the display change has taken effect
+        }, 100);
     });
 });
+
 document.addEventListener('DOMContentLoaded', function() {
-    // Consolidate all modal-related functionalities
     const emailModal = document.getElementById("emailModal");
     const emailIcon = document.getElementById("email-icon");
-    const closeButtons = document.querySelectorAll('.close'); // This will get all close buttons
+    const closeButtons = document.querySelectorAll('.close');
 
     emailIcon.onclick = function() {
         emailModal.style.display = "block";
@@ -121,7 +110,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     closeButtons.forEach(button => {
         button.onclick = function() {
-            button.closest('.modal').style.display = "none"; // This makes sure the closest modal to the button gets closed
+            button.closest('.modal').style.display = "none";
         };
     });
 
@@ -133,18 +122,32 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const form = document.getElementById("contact-form");
     form.onsubmit = function(event) {
-        event.preventDefault(); // Stop the form from submitting normally
-        sendEmail(); // Send the email function
+        event.preventDefault();
+        sendEmail();
     };
 });
 
 function sendEmail() {
     var email = document.getElementById("email").value;
     var message = document.getElementById("message").value;
-    // Normally, you would need server-side support to send an email.
-    // However, as you requested a simple client-side solution:
     window.location.href = `mailto:michaelharris.tech@gmail.com?subject=Message from ${email}&body=${message}`;
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    const servicesBtn = document.getElementById('services-btn');
+    const servicesText = document.getElementById('services-text');
+
+    servicesBtn.addEventListener('click', function(event) {
+        event.stopPropagation();
+        servicesBtn.style.display = 'none';
+        servicesText.style.display = 'block';
+        setTimeout(() => {
+            servicesText.classList.add('visible-text');
+        }, 100);
+    });
+});
+
+
 
 
 

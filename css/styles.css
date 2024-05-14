@@ -116,8 +116,8 @@ border-radius: 5px;
 box-shadow: 0 4px 8px rgba(119, 248, 255, 0.644);
 }
 .popup-bubble .typing-text {
-    color: rgb(178, 255, 178); /* Replace with your desired color */
-    /* Other styling properties */
+    color: rgb(178, 255, 178); 
+    
 }
 
 
@@ -193,8 +193,8 @@ font-weight: bold;
     transition: background-color 0.3s, transform 0.2s;
 }
 .bar-button:hover {
-    background-color: darkgreen; /* Darker green on hover */
-    transform: scale(1.05); /* Slight increase in size on hover */
+    background-color: darkgreen; 
+    transform: scale(1.05); 
 }
 
 
@@ -206,29 +206,29 @@ font-weight: bold;
     vertical-align: middle;
     display: inline-block;
 }
-/* The Modal (background) */
+
 .modal {
     display: none;
     position: fixed;
     z-index: 1000;
-    padding-top: 50px; /* Reduced padding for better positioning */
+    padding-top: 50px; 
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0, 0, 0, 0.9); /* Black with opacity */
+    background-color: rgba(0, 0, 0, 0.9); 
 }
 
-/* Modal Content (Image) */
+
 .modal-content {
     margin: auto;
     display: block;
-    width: 90%; /* Increase width */
-    max-width: none; /* Remove max-width constraint */
+    width: 90%; 
+    max-width: none;
 }
 
-/* Caption of Modal Image */
+
 #caption {
     margin: auto;
     display: block;
@@ -240,7 +240,7 @@ font-weight: bold;
     height: 150px;
 }
 
-/* The Close Button */
+
 .close {
     position: absolute;
     top: 15px;
@@ -260,14 +260,14 @@ font-weight: bold;
 
 
 
-/* Media Queries */
+
 @media screen and (max-width: 768px) {
     .side-bar {
-        width: 85%; /* Slightly more width on smaller screens */
-        transition: transform 0.5s ease; /* Faster transition on mobile */
+        width: 85%; 
+        transition: transform 0.5s ease; 
     }
     #bar1, #bar2, #bar3 {
-        transform: translateX(-100%); /* Ensure side bars are initially off-screen on mobile */
+        transform: translateX(-100%); 
     }
 }
 
@@ -286,35 +286,35 @@ font-weight: bold;
 }
 
 .button-container .popup-bubble {
-    position: fixed; /* Fixed to the viewport */
-    top: 50%; /* Center vertically */
-    left: -220%; /* Center horizontally */
-    transform: translate(-50%, -50%) scale(1); /* Adjust for initial state */
-    width: 225px; /* Responsive width */
-    max-height: 80vh; /* Responsive max height */
-    overflow-y: auto; /* Allow scroll for overflow content */
-    opacity: 0; /* Ensure visibility */
+    position: fixed; 
+    top: 50%; 
+    left: -220%; 
+    transform: translate(-50%, -50%) scale(1); 
+    width: 225px; 
+    max-height: 80vh; 
+    overflow-y: auto; 
+    opacity: 0; 
     visibility: hidden;
     transition: opacity 0.3s, visibility 0.3s;
 }
 .button-container a:hover + .popup-bubble,
-.button-container a:focus + .popup-bubble { /* Added focus for accessibility */
-    opacity: 1; /* Show on hover or focus */
-    visibility: visible; /* Show on hover or focus */
+.button-container a:focus + .popup-bubble { 
+    opacity: 1; 
+    visibility: visible; 
 }
 .about-text {
-    color: rgb(145, 237, 145); /* Light green color */
+    color: rgb(145, 237, 145); 
     font-size: 16px;
-    transition: opacity 2s; /* Transition for fading in */
-    opacity: 0; /* Start with text invisible */
+    transition: opacity 2s; 
+    opacity: 0; 
     padding: 10px;
     text-align: center;
-    width: 100%; /* Ensure it fills the bar */
+    width: 100%; 
 }
 
-/* Ensure the text will smoothly appear */
+
 .visible-text {
-    opacity: 1; /* Fully visible */
+    opacity: 1;
 }
 
 input[type="email"], textarea {
@@ -326,7 +326,7 @@ input[type="email"], textarea {
     box-sizing: border-box;
 }
 
-/* Style the submit button */
+
 button[type="submit"] {
     background-color: #4CAF50;
     color: white;
@@ -340,6 +340,19 @@ button[type="submit"] {
 button[type="submit"]:hover {
     opacity: 0.8;
 }
+.services-text {
+    color: rgb(145, 237, 145); 
+    font-size: 16px;
+    transition: opacity 2s;
+    opacity: 0; 
+    padding: 10px;
+    text-align: center;
+    width: 100%; 
+}
+.visible-text {
+    opacity: 1; 
+}
+
 
 
 
