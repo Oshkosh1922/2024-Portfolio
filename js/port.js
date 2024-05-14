@@ -147,7 +147,16 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-
+const contactBtn = document.getElementById('contact-btn');
+const contactText = document.getElementById('contact-text');
+contactBtn.addEventListener('click', function(event) {
+    event.stopPropagation();
+    contactBtn.style.display = 'none';
+    contactText.style.display = 'block';
+    setTimeout(() => {
+        contactText.classList.add('visible-text');
+    }, 100);
+});
 
 
 
