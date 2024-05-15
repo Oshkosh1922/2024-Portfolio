@@ -115,11 +115,10 @@ padding: 10px;
 border-radius: 5px;
 box-shadow: 0 4px 8px rgba(119, 248, 255, 0.644);
 }
+
 .popup-bubble .typing-text {
     color: rgb(178, 255, 178); 
-    
 }
-
 
 .school-info {
 display: flex;
@@ -144,7 +143,6 @@ transform: translateY(0);
 .button-container .school-icon {
 position: relative;
 }
-
 
 .button-container .popup-bubble {
     position: absolute;
@@ -192,11 +190,11 @@ font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.2s;
 }
+
 .bar-button:hover {
     background-color: darkgreen; 
     transform: scale(1.05); 
 }
-
 
 .line::before {
     content: '•'; 
@@ -220,14 +218,12 @@ font-weight: bold;
     background-color: rgba(0, 0, 0, 0.9); 
 }
 
-
 .modal-content {
     margin: auto;
     display: block;
     width: 90%; 
     max-width: none;
 }
-
 
 #caption {
     margin: auto;
@@ -239,7 +235,6 @@ font-weight: bold;
     padding: 10px 0;
     height: 150px;
 }
-
 
 .close {
     position: absolute;
@@ -258,8 +253,44 @@ font-weight: bold;
     cursor: pointer;
 }
 
+.about-text,
+.services-text,
+.contact-text {
+    color: rgb(145, 237, 145);
+    font-size: 16px;
+    transition: opacity 2s;
+    opacity: 0;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+}
 
+.visible-text {
+    opacity: 1;
+}
 
+input[type="email"], textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+button[type="submit"]:hover {
+    opacity: 0.8;
+}
 
 @media screen and (max-width: 768px) {
     .side-bar {
@@ -268,6 +299,26 @@ font-weight: bold;
     }
     #bar1, #bar2, #bar3 {
         transform: translateX(-100%); 
+    }
+
+    .bar-button {
+        font-size: 16px;
+        padding: 8px 15px;
+    }
+
+    .about-text,
+    .services-text,
+    .contact-text {
+        font-size: 14px;
+    }
+
+    .letter {
+        font-size: 5vw;
+    }
+
+    .button-container {
+        width: 30%;
+        gap: 50px;
     }
 }
 
@@ -279,7 +330,6 @@ font-weight: bold;
 .button-container a {
     z-index: 1;
 }
-
 
 .letter {
     font-size: 3vw;
@@ -297,73 +347,17 @@ font-weight: bold;
     visibility: hidden;
     transition: opacity 0.3s, visibility 0.3s;
 }
+
 .button-container a:hover + .popup-bubble,
 .button-container a:focus + .popup-bubble { 
     opacity: 1; 
     visibility: visible; 
 }
-.about-text {
-    color: rgb(145, 237, 145); 
-    font-size: 16px;
-    transition: opacity 2s; 
-    opacity: 0; 
-    padding: 10px;
-    text-align: center;
-    width: 100%; 
-}
 
-
-.visible-text {
-    opacity: 1;
-}
-
-input[type="email"], textarea {
-    width: 100%;
-    padding: 12px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-}
-
-
-button[type="submit"] {
-    background-color: #4CAF50;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-}
-
-button[type="submit"]:hover {
-    opacity: 0.8;
-}
-.services-text {
-    color: rgb(145, 237, 145); 
-    font-size: 16px;
-    transition: opacity 2s;
-    opacity: 0; 
-    padding: 10px;
-    text-align: center;
-    width: 100%; 
-}
 .visible-text {
     opacity: 1; 
 }
-.contact-text {
-    color: rgb(145, 237, 145);
-    font-size: 16px;
-    transition: opacity 2s;
-    opacity: 0;
-    padding: 10px;
-    text-align: center;
-    width: 100%;
-}
-.visible-text {
-    opacity: 1; 
-}
+
 
 
 
