@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <nav>
         <ul></ul>
@@ -25,25 +27,33 @@
     <div id="bar1" class="side-bar left">
         <button class="bar-button" id="about-btn">About Me</button>
         <div class="about-text" id="about-text" style="display: none;">
-            Hello, I'm Michael Harris. I'm a passionate software developer with a keen interest in blockchain technology and web development. Currently, I am pursuing a Bachelor's degree in Applied Computing at the University of Oshkosh Wisconsin. I hold an Associate's degree in Software Development from Fox Valley Technical College. I have extensive experience in pre-production engineering and have worked with various printing and design companies. I'm actively working to leverage my skills and expertise in software development.
+            Hello, I'm Michael Harris. I'm a passionate software developer with a keen interest in blockchain technology
+            and web development. Currently, I am pursuing a Bachelor's degree in Applied Computing at the University of
+            Oshkosh Wisconsin. I hold an Associate's degree in Software Development from Fox Valley Technical College. I
+            have extensive experience in pre-production engineering and have worked with various printing and design
+            companies. I'm actively working to leverage my skills and expertise in software development.
         </div>
     </div>
-    
+
     <div id="bar2" class="side-bar right">
         <button class="bar-button" id="services-btn">Services</button>
         <div class="services-text" id="services-text" style="display: none;">
             <h2></h2>I offer a range of services including:</h2>
             <ul>
-                <li>Web Development: Creating responsive and visually appealing websites using HTML, CSS, JavaScript, and various frameworks.</li>
+                <li>Web Development: Creating responsive and visually appealing websites using HTML, CSS, JavaScript, and
+                    various frameworks.</li>
                 <br>
-                <li>Software Development: Developing custom software solutions tailored to your business needs using languages such as JS, C#, and C++.</li>
+                <li>Software Development: Developing custom software solutions tailored to your business needs using
+                    languages such as JS, C#, and C++.</li>
                 <br>
-                <li>Graphic Design: Utilizing Adobe Illustrator and other design tools to create stunning graphics and structural designs.</li>
+                <li>Graphic Design: Utilizing Adobe Illustrator and other design tools to create stunning graphics and
+                    structural designs.</li>
             </ul>
-            With my diverse skill set and industry experience, I can help you achieve your digital and technological goals.
+            With my diverse skill set and industry experience, I can help you achieve your digital and technological
+            goals.
         </div>
     </div>
-    
+
     <div id="bar3" class="side-bar left">
         <button class="bar-button" id="contact-btn">Contact</button>
         <div class="contact-text" id="contact-text" style="display: none;">
@@ -51,9 +61,6 @@
             <br>Email: <a href="mailto:michaelharris.tech@gmail.com">michaelharris.tech@gmail.com</a>
         </div>
     </div>
-    
-    
-    
 
     <div class="button-container">
         <a href="#" class="school-icon"><i class="fa-solid fa-school"></i></a>
@@ -67,25 +74,22 @@
                 <p class="typing-text" id="text-fvtc"></p>
             </div>
         </div>
-        <div id="resumeModal" class="modal">
-            <span class="close">&times;</span>
-            <img class="modal-content" id="resumeImage" src="images/rez.png" alt="Resume">
-            <div id="caption">My Resume</div>
-        </div>
-        <a href="#" id="resume-icon"><i class="fa-solid fa-file"></i></a>
         <a href="#" id="email-icon"><i class="fa-solid fa-envelope"></i></a>
 
         <div id="emailModal" class="modal">
             <div class="modal-content">
                 <span class="close">&times;</span>
-                <form id="contact-form">
-                    <label for="email">Your Email:</label>
-                    <input type="email" id="email" name="email" required>
+                <form id="contact-form" action="mailto:michaelharris.tech@gmail.com" method="post" enctype="text/plain">
+                    <label for="email">To:</label>
+                    <input type="email" id="recipient-email" name="recipient-email" value="michaelharris.tech@gmail.com" readonly>
+
+                    <label for="sender-email">Your Email:</label>
+                    <input type="email" id="sender-email" name="sender-email" required>
 
                     <label for="message">Message:</label>
                     <textarea id="message" name="message" required></textarea>
 
-                    <button type="submit">Send Email</button>
+                    <button type="submit" class="email-button">Send Email</button>
                 </form>
             </div>
         </div>
@@ -96,12 +100,33 @@
     <div style="height: 3000px;"></div>
 
     <script src="js/port.js"></script>
+    <script>
+        // Modal functionality
+        const emailIcon = document.getElementById('email-icon');
+        const emailModal = document.getElementById('emailModal');
+        const closeModal = document.querySelector('.close');
+
+        emailIcon.addEventListener('click', function () {
+            emailModal.style.display = 'block';
+        });
+
+        closeModal.addEventListener('click', function () {
+            emailModal.style.display = 'none';
+        });
+
+        window.addEventListener('click', function (event) {
+            if (event.target === emailModal) {
+                emailModal.style.display = 'none';
+            }
+        });
+    </script>
 </body>
+
 <footer>
     <a href="https://github.com/oshkosh1922" target="_blank"><i class="fa-brands fa-github"></i></a>
     <a href="https://twitter.com/___SWM" target="_blank"><i class="fa-brands fa-twitter"></i></a>
     <a href="https://linkedin.com/in/oshkosh1922" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
     <p class="footer-text">Designed by Michael Harris 2024 © </p>
 </footer>
-</html>
 
+</html>

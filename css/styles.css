@@ -13,7 +13,7 @@ body, html {
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     border-radius: 10px;
     z-index: 2000;
-    transition: transform 1.0s ease;
+    transition: transform 0.5s ease; /* Reduced transition time for snappier feel */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -22,7 +22,7 @@ body, html {
 }
 
 .left {
-    transition: transform 1.0s ease;
+    transition: transform 0.5s ease; /* Reduced transition time */
 }
 
 #bar1 { top: 5%; }
@@ -90,30 +90,30 @@ html {
 }
 
 @keyframes spin {
-0% { transform: rotateX(0); }
-100% { transform: rotateX(360deg); }
+    0% { transform: rotateX(0); }
+    100% { transform: rotateX(360deg); }
 }
 
 .footer-text {
-font-family: 'Orbitron', sans-serif;
-font-size: 12px;
-color: rgb(215, 255, 215);
-text-align: center;
-margin-top: 10px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 12px;
+    color: rgb(215, 255, 215);
+    text-align: center;
+    margin-top: 10px;
 }
 
 .icon-container {
-position: relative;
+    position: relative;
 }
 
 .popup-bubble {
-position: absolute;
-display: none;
-width: 200px;
-background-color: rgb(58, 58, 58);
-padding: 10px;
-border-radius: 5px;
-box-shadow: 0 4px 8px rgba(119, 248, 255, 0.644);
+    position: absolute;
+    display: none;
+    width: 200px;
+    background-color: rgb(58, 58, 58);
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(119, 248, 255, 0.644);
 }
 
 .popup-bubble .typing-text {
@@ -121,27 +121,27 @@ box-shadow: 0 4px 8px rgba(119, 248, 255, 0.644);
 }
 
 .school-info {
-display: flex;
-align-items: center;
-gap: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .school-logo {
-width: 80px;
-height: auto;
+    width: 80px;
+    height: auto;
 }
 
 .school-icon:hover + .popup-bubble {
-display: block;
+    display: block;
 }
 
 .popup-bubble.visible {
-opacity: 1;
-transform: translateY(0);
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .button-container .school-icon {
-position: relative;
+    position: relative;
 }
 
 .button-container .popup-bubble {
@@ -150,7 +150,7 @@ position: relative;
     left: -210px; 
     transform: translateY(-50%) scale(0); 
     transform-origin: bottom right;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Improved transition */
     display: block;
     opacity: 0;
     visibility: hidden;
@@ -166,18 +166,18 @@ position: relative;
 }
 
 .bubble-icon {
-width: 80px;
-height: auto;
-margin-right: 5px;
+    width: 80px;
+    height: auto;
+    margin-right: 5px;
 }
 
 .button-container a {
-position: relative;
+    position: relative;
 }
 
 .typing-text {
-font-family: 'Orbitron', sans-serif;
-font-weight: bold;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: bold;
 }
 
 .bar-button {
@@ -294,7 +294,7 @@ button[type="submit"]:hover {
 
 @media screen and (max-width: 768px) {
     .side-bar {
-        width: 85%; 
+        width: 80%; 
         transition: transform 0.5s ease; 
     }
     #bar1, #bar2, #bar3 {
@@ -357,9 +357,4 @@ button[type="submit"]:hover {
 .visible-text {
     opacity: 1; 
 }
-
-
-
-
-
 
