@@ -13,7 +13,7 @@ body, html {
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     border-radius: 10px;
     z-index: 2000;
-    transition: transform 0.5s ease; /* Reduced transition time for snappier feel */
+    transition: transform 0.5s ease; 
     display: flex;
     align-items: center;
     justify-content: center;
@@ -22,7 +22,7 @@ body, html {
 }
 
 .left {
-    transition: transform 0.5s ease; /* Reduced transition time */
+    transition: transform 0.5s ease; 
 }
 
 #bar1 { top: 5%; }
@@ -150,7 +150,7 @@ html {
     left: -210px; 
     transform: translateY(-50%) scale(0); 
     transform-origin: bottom right;
-    transition: transform 0.3s ease, opacity 0.3s ease; /* Improved transition */
+    transition: transform 0.3s ease, opacity 0.3s ease; 
     display: block;
     opacity: 0;
     visibility: hidden;
@@ -219,11 +219,51 @@ html {
 }
 
 .modal-content {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 400px;
     margin: auto;
-    display: block;
-    width: 90%; 
-    max-width: none;
+    position: relative;
 }
+
+.modal-content h2 {
+    color: #fff;
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.modal-content label {
+    color: #fff;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.modal-content input[type="email"],
+.modal-content textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.modal-content button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 5px;
+}
+
+.modal-content button:hover {
+    background-color: #45a049;
+}
+
 
 #caption {
     margin: auto;
@@ -258,15 +298,16 @@ html {
 .contact-text {
     color: rgb(145, 237, 145);
     font-size: 16px;
-    transition: opacity 2s;
     opacity: 0;
     padding: 10px;
     text-align: center;
-    width: 100%;
+    transition: opacity 2s, transform 2s;
+    transform: translateY(10px);
 }
 
 .visible-text {
     opacity: 1;
+    transform: translateY(0);
 }
 
 input[type="email"], textarea {
@@ -310,6 +351,12 @@ button[type="submit"]:hover {
     .services-text,
     .contact-text {
         font-size: 14px;
+        padding: 8px 15px;
+    }
+
+    .visible-text {
+        opacity: 1;
+        transform: translateY(0);
     }
 
     .letter {
@@ -358,3 +405,8 @@ button[type="submit"]:hover {
     opacity: 1; 
 }
 
+
+Copy code
+span {
+    transition: opacity 0.3s ease; 
+}

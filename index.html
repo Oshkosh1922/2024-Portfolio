@@ -8,6 +8,12 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        (function() {
+            emailjs.init('aDqz4Bq-irRUf53OV');
+        })();
+    </script>
 </head>
 
 <body>
@@ -25,69 +31,41 @@
     </div>
 
     <div id="bar1" class="side-bar left">
-        <button class="bar-button" id="about-btn">About Me</button>
-        <div class="about-text" id="about-text" style="display: none;">
-            Hello, I'm Michael Harris. I'm a passionate software developer with a keen interest in blockchain technology
-            and web development. Currently, I am pursuing a Bachelor's degree in Applied Computing at the University of
-            Oshkosh Wisconsin. I hold an Associate's degree in Software Development from Fox Valley Technical College. I
-            have extensive experience in pre-production engineering and have worked with various printing and design
-            companies. I'm actively working to leverage my skills and expertise in software development.
+        <div class="about-text" id="about-text">
+            Hey there! I'm Michael Harris, a creative web developer who loves building cool, interactive experiences. Whether it's a website that flows or something that pops, I’m always up for a new challenge—especially if it involves bringing people together.
         </div>
     </div>
-
+    
     <div id="bar2" class="side-bar right">
-        <button class="bar-button" id="services-btn">Services</button>
-        <div class="services-text" id="services-text" style="display: none;">
-            <h2></h2>I offer a range of services including:</h2>
+        <div class="services-text" id="services-text">
+            <h2>What I Bring to the Table:</h2><br>
             <ul>
-                <li>Web Development: Creating responsive and visually appealing websites using HTML, CSS, JavaScript, and
-                    various frameworks.</li>
-                <br>
-                <li>Software Development: Developing custom software solutions tailored to your business needs using
-                    languages such as JS, C#, and C++.</li>
-                <br>
-                <li>Graphic Design: Utilizing Adobe Illustrator and other design tools to create stunning graphics and
-                    structural designs.</li>
+                <li> - Web Development with a creative spin</li>
+                <li> - Unique, engaging digital designs</li>
+                <li> - Collaboration that turns ideas into fun, interactive experiences</li>
             </ul>
-            With my diverse skill set and industry experience, I can help you achieve your digital and technological
-            goals.
         </div>
     </div>
-
+    
     <div id="bar3" class="side-bar left">
-        <button class="bar-button" id="contact-btn">Contact</button>
-        <div class="contact-text" id="contact-text" style="display: none;">
-            Feel free to reach out to me at:
-            <br>Email: <a href="mailto:michaelharris.tech@gmail.com">michaelharris.tech@gmail.com</a>
+        <div class="contact-text" id="contact-text">
+            A Bit About My Process" "I believe great design and development isnt just about code—its about creating experiences that people love to engage with. Whether Im diving into web design, collaborating on creative projects, or just brainstorming new ideas, I always aim to build something that stands out. My work blends functionality with a touch of fun, because who says creativity can't be practical too?
         </div>
     </div>
 
     <div class="button-container">
-        <a href="#" class="school-icon"><i class="fa-solid fa-school"></i></a>
-        <div class="popup-bubble">
-            <div class="school-section">
-                <img src="images/uwo.png" alt="School Logo" class="bubble-icon">
-                <p class="typing-text" id="text-uwo"></p>
-            </div>
-            <div class="school-section">
-                <img src="images/fvtc.jpeg" alt="School Logo" class="bubble-icon">
-                <p class="typing-text" id="text-fvtc"></p>
-            </div>
-        </div>
         <a href="#" id="email-icon"><i class="fa-solid fa-envelope"></i></a>
 
         <div id="emailModal" class="modal">
             <div class="modal-content">
                 <span class="close">&times;</span>
-                <form id="contact-form" action="mailto:michaelharris.tech@gmail.com" method="post" enctype="text/plain">
-                    <label for="email">To:</label>
-                    <input type="email" id="recipient-email" name="recipient-email" value="michaelharris.tech@gmail.com" readonly>
-
+                <form id="contact-form">
+                    <h2>Contact Me</h2>
                     <label for="sender-email">Your Email:</label>
-                    <input type="email" id="sender-email" name="sender-email" required>
+                    <input type="email" id="sender-email" name="sender-email" required placeholder="Enter your email">
 
                     <label for="message">Message:</label>
-                    <textarea id="message" name="message" required></textarea>
+                    <textarea id="message" name="message" required placeholder="Enter your message"></textarea>
 
                     <button type="submit" class="email-button">Send Email</button>
                 </form>
@@ -101,7 +79,6 @@
 
     <script src="js/port.js"></script>
     <script>
-        // Modal functionality
         const emailIcon = document.getElementById('email-icon');
         const emailModal = document.getElementById('emailModal');
         const closeModal = document.querySelector('.close');
@@ -118,6 +95,28 @@
             if (event.target === emailModal) {
                 emailModal.style.display = 'none';
             }
+        });
+
+        const form = document.getElementById("contact-form");
+        form.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const senderEmail = document.getElementById("sender-email").value;
+            const message = document.getElementById("message").value;
+
+            const templateParams = {
+                from_email: senderEmail,
+                message: message
+            };
+
+            emailjs.send('service_68xzqis', 'template_05fgug1', templateParams) 
+                .then(function(response) {
+                    alert('Email sent successfully!');
+                    form.reset();
+                    emailModal.style.display = 'none';
+                }, function(error) {
+                    alert('Failed to send email. Please try again later.');
+                });
         });
     </script>
 </body>
