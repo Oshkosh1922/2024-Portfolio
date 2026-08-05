@@ -1,119 +1,145 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Michael's Portfolio</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    <script>
-        (function() {
-            emailjs.init('aDqz4Bq-irRUf53OV');
-        })();
-    </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Michael Harris — IT support, technical systems, AI tools, XML workflows, SQL, and interactive troubleshooting projects.">
+  <title>Michael Harris | IT Support + Interactive Systems</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
 </head>
-
 <body>
-    <nav>
-        <ul></ul>
+  <canvas id="field" aria-hidden="true"></canvas>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Michael Harris home"><span class="brand-mark">MH</span><span>Michael Harris</span></a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav id="nav">
+      <a href="#assistant">AI</a><a href="#lab">Troubleshooter</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#contact">Contact</a>
     </nav>
+  </header>
 
-    <div id="spinning-letters">
-        <div class="letter">H</div>
-        <div class="letter">A</div>
-        <div class="letter">R</div>
-        <div class="letter">R</div>
-        <div class="letter">I</div>
-        <div class="letter">S</div>
-    </div>
-
-    <div id="bar1" class="side-bar left">
-        <div class="about-text" id="about-text">
-            Hey there! I'm Michael Harris, a creative web developer who loves building cool, interactive experiences. Whether it's a website that flows or something that pops, I’m always up for a new challenge—especially if it involves bringing people together.
+  <main id="top">
+    <section class="hero section">
+      <div class="hero-copy reveal">
+        <p class="eyebrow">IT SUPPORT · APPLIED COMPUTING · AI BUILDER</p>
+        <h1>I build systems that <span>solve the problem</span>, then explain why they work.</h1>
+        <p class="lede">I’m Michael Harris, a technical professional moving into IT support. My background combines customer troubleshooting, production engineering, XML-based documentation, databases, programming, remote collaboration, and hands-on AI experimentation.</p>
+        <div class="actions">
+          <a class="button primary" href="#assistant">Talk with my AI</a>
+          <a class="button" href="resume.html" target="_blank" rel="noopener">View résumé</a>
+          <a class="text-link" href="https://github.com/Oshkosh1922" target="_blank" rel="noopener">GitHub ↗</a>
         </div>
-    </div>
-    
-    <div id="bar2" class="side-bar right">
-        <div class="services-text" id="services-text">
-            <h2>What I Bring to the Table:</h2><br>
-            <ul>
-                <li> - Web Development with a creative spin</li>
-                <li> - Unique, engaging digital designs</li>
-                <li> - Collaboration that turns ideas into fun, interactive experiences</li>
-            </ul>
+        <div class="signal-row" aria-label="Professional highlights">
+          <span>Senior Technical Illustrator</span><span>Former Pre-Production Engineer</span><span>B.S. Applied Computing — in progress</span>
         </div>
-    </div>
-    
-    <div id="bar3" class="side-bar left">
-        <div class="contact-text" id="contact-text">
-            A Bit About My Process" "I believe great design and development isnt just about code—its about creating experiences that people love to engage with. Whether Im diving into web design, collaborating on creative projects, or just brainstorming new ideas, I always aim to build something that stands out. My work blends functionality with a touch of fun, because who says creativity can't be practical too?
+      </div>
+      <div class="hero-system reveal" aria-label="Animated technical system visualization">
+        <div class="orbit orbit-a"></div><div class="orbit orbit-b"></div>
+        <div class="core"><span>HARRIS</span><small>SYSTEMS ONLINE</small></div>
+        <div class="node n1">XML</div><div class="node n2">SQL</div><div class="node n3">AI</div><div class="node n4">SUPPORT</div>
+      </div>
+    </section>
+
+    <section id="assistant" class="section split">
+      <div class="section-copy reveal">
+        <p class="eyebrow">REAL AI ASSISTANT</p>
+        <h2>Ask about my experience instead of reading another static résumé.</h2>
+        <p>This assistant uses an actual language model through a secure server endpoint. It can answer free-form questions, remember the current conversation, explain how my experience translates to IT support, and admit when my portfolio does not contain enough information.</p>
+        <div class="guardrail"><strong>Grounded by design:</strong> answers are restricted to verified portfolio knowledge about my work, education, projects, and skills.</div>
+      </div>
+      <div class="terminal reveal">
+        <div class="terminal-bar"><span></span><span></span><span></span><b>michael-ai / recruiter mode</b><em id="ai-status">ready</em></div>
+        <div id="chat-log" class="chat-log" aria-live="polite">
+          <div class="message assistant"><div class="avatar">MH</div><div><p>Hi — I’m Michael’s portfolio assistant. Ask me anything about his technical experience, projects, education, or fit for an IT support role.</p></div></div>
         </div>
-    </div>
+        <div class="prompt-row" aria-label="Suggested questions">
+          <button data-prompt="How does Michael's experience at Norka translate to help desk work?">Norka → help desk</button>
+          <button data-prompt="What technical problems does Michael solve in his current role?">Current role</button>
+          <button data-prompt="Which project best demonstrates Michael's troubleshooting mindset?">Best project</button>
+        </div>
+        <form id="chat-form" class="chat-form">
+          <label class="sr-only" for="chat-input">Ask Michael's AI assistant</label>
+          <textarea id="chat-input" rows="2" maxlength="800" placeholder="Ask a free-form question…" required></textarea>
+          <button class="send" type="submit">Send</button>
+        </form>
+        <p class="chat-note">AI-generated answers may be imperfect. Verify important details through the résumé or contact Michael directly.</p>
+      </div>
+    </section>
 
-    <div class="button-container">
-       
+    <section id="lab" class="section">
+      <div class="section-heading reveal"><p class="eyebrow">LIVE NETWORK TROUBLESHOOTER</p><h2>Choose a failure. Follow the signal.</h2><p>This demo shows a structured support process: scope the issue, isolate the layer, test assumptions, document results, and escalate with useful evidence.</p></div>
+      <div class="network-lab reveal">
+        <div class="topology" id="topology">
+          <div class="device" data-device="user"><i>01</i><strong>User device</strong><small>Windows / macOS</small></div><div class="wire"></div>
+          <div class="device" data-device="lan"><i>02</i><strong>Local network</strong><small>Wi‑Fi / Ethernet</small></div><div class="wire"></div>
+          <div class="device" data-device="gateway"><i>03</i><strong>Gateway</strong><small>DHCP / routing</small></div><div class="wire"></div>
+          <div class="device" data-device="dns"><i>04</i><strong>DNS + service</strong><small>Name resolution</small></div>
+        </div>
+        <div class="lab-controls">
+          <label for="scenario">Incident scenario</label>
+          <select id="scenario">
+            <option value="wifi">Connected to Wi‑Fi, but no internet</option>
+            <option value="site">Only one website will not load</option>
+            <option value="vpn">Remote employee cannot connect to VPN</option>
+            <option value="printer">Network printer is unreachable</option>
+            <option value="slow">Connection is unusually slow</option>
+          </select>
+          <button id="start-diagnostic" class="button primary" type="button">Start diagnostic</button>
+          <div id="diagnostic" class="diagnostic" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
 
-        <a href="https://calendly.com/softwaremike/meeting" target="_blank"><i class="fa-solid fa-calendar-days"></i></a>
-    </div>
+    <section id="projects" class="section">
+      <div class="section-heading reveal"><p class="eyebrow">INTERACTIVE PROJECTS</p><h2>Not a gallery. A working bench.</h2></div>
+      <div class="project-grid">
+        <article class="project feature reveal">
+          <div><span class="project-index">01</span><h3>SQL Support Desk Explorer</h3><p>Filter a simulated ticket database and run safe, predefined SQL views to inspect priorities, categories, and resolution status.</p></div>
+          <div class="sql-demo">
+            <div class="sql-toolbar"><button class="active" data-sql="open">Open tickets</button><button data-sql="priority">High priority</button><button data-sql="resolved">Resolved</button></div>
+            <pre id="sql-query">SELECT * FROM tickets WHERE status = 'Open';</pre>
+            <div id="sql-results" class="sql-results"></div>
+          </div>
+        </article>
 
-    <div style="height: 3000px;"></div>
+        <article class="project reveal">
+          <span class="project-index">02</span><h3>TCG Signal</h3><p>A collectible-card product concept focused on signals, discovery, and market intelligence. It represents my interest in building practical tools around real user decisions.</p><div class="tags"><span>Product thinking</span><span>Data</span><span>Mobile</span><span>AI</span></div>
+        </article>
 
-    <script src="js/port.js"></script>
-    <script>
-        const emailIcon = document.getElementById('email-icon');
-        const emailModal = document.getElementById('emailModal');
-        const closeModal = document.querySelector('.close');
+        <article class="project reveal">
+          <span class="project-index">03</span><h3>XML Workflow Inspector</h3><p>An interactive visualization inspired by my current work troubleshooting structured technical-documentation workflows.</p>
+          <div class="xml-flow"><button data-xml="source">SOURCE</button><b>→</b><button data-xml="validate">VALIDATE</button><b>→</b><button data-xml="publish">PUBLISH</button></div><pre id="xml-output">Select a workflow stage to inspect it.</pre>
+        </article>
 
-        emailIcon.addEventListener('click', function () {
-            emailModal.style.display = 'block';
-        });
+        <article class="project reveal">
+          <span class="project-index">04</span><h3>Home Lab Roadmap</h3><p>A documented lab track for Windows administration, identity, networking, Microsoft 365, and cloud fundamentals. Items remain clearly labeled as planned until completed.</p><div class="roadmap"><span class="done">Portfolio deployment</span><span class="active">AI endpoint</span><span>Windows lab</span><span>Identity + policy</span></div>
+        </article>
 
-        closeModal.addEventListener('click', function () {
-            emailModal.style.display = 'none';
-        });
+        <article class="project reveal">
+          <span class="project-index">05</span><h3>GitHub Activity</h3><p>Source code, iterations, and project documentation live publicly on GitHub.</p><a class="button" href="https://github.com/Oshkosh1922" target="_blank" rel="noopener">Open GitHub ↗</a>
+        </article>
+      </div>
+    </section>
 
-        window.addEventListener('click', function (event) {
-            if (event.target === emailModal) {
-                emailModal.style.display = 'none';
-            }
-        });
+    <section id="experience" class="section">
+      <div class="section-heading reveal"><p class="eyebrow">EXPERIENCE</p><h2>Technical work, translated honestly.</h2></div>
+      <div class="timeline">
+        <article class="reveal"><time>2026 — PRESENT</time><div><h3>Senior Technical Illustrator · O’Neil</h3><p>Troubleshoot XML-based documentation and production workflows, resolve technical content issues with cross-functional teams, and protect accuracy across complex deliverables.</p></div></article>
+        <article class="reveal"><time>2021 — 2024</time><div><h3>Pre-Production Engineer · Norka Inc.</h3><p>Provided customer-facing technical file support, programming assistance, database-related workflow support, and issue resolution in a hybrid work environment.</p></div></article>
+        <article class="reveal"><time>EXPECTED 2027</time><div><h3>B.S. Applied Computing · UW Oshkosh</h3><p>Remote degree work involving programming, databases, networking fundamentals, project management, cybersecurity fundamentals, and technical problem-solving.</p></div></article>
+      </div>
+    </section>
 
-        const form = document.getElementById("contact-form");
-        form.addEventListener("submit", function(event) {
-            event.preventDefault();
+    <section id="contact" class="section contact reveal">
+      <p class="eyebrow">AVAILABLE FOR REMOTE IT SUPPORT OPPORTUNITIES</p>
+      <h2>Bring me the problem. I’ll bring structure, communication, and persistence.</h2>
+      <div class="actions"><a class="button primary" href="mailto:harrismi16@uwosh.edu">harrismi16@uwosh.edu</a><a class="button" href="https://www.linkedin.com/in/michaelharris1922" target="_blank" rel="noopener">LinkedIn ↗</a><a class="button" href="resume.html" target="_blank" rel="noopener">Résumé</a></div>
+    </section>
+  </main>
 
-            const senderEmail = document.getElementById("sender-email").value;
-            const message = document.getElementById("message").value;
-
-            const templateParams = {
-                from_email: senderEmail,
-                message: message
-            };
-
-            emailjs.send('service_68xzqis', 'template_05fgug1', templateParams) 
-                .then(function(response) {
-                    alert('Email sent successfully!');
-                    form.reset();
-                    emailModal.style.display = 'none';
-                }, function(error) {
-                    alert('Failed to send email. Please try again later.');
-                });
-        });
-    </script>
+  <footer><span>Michael Harris © 2026</span><span>Designed as a working technical portfolio.</span></footer>
+  <script src="js/port.js" defer></script>
 </body>
-
-<footer>
-    <a href="https://github.com/oshkosh1922" target="_blank"><i class="fa-brands fa-github"></i></a>
-
-
-
-    <a href="https://www.linkedin.com/in/michaelharris1922" target="_blank">
-        <i class="fa-brands fa-linkedin"></i></a>
-
-    <p class="footer-text">Designed by Michael Harris 2024 © </p>
-</footer>
-
 </html>
