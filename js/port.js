@@ -1,106 +1,28 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const bars = ['bar1', 'bar2', 'bar3'];
+const $=(s,p=document)=>p.querySelector(s);const $$=(s,p=document)=>[...p.querySelectorAll(s)];
 
-    bars.forEach(barId => {
-        const bar = document.getElementById(barId);
-        if (bar) {
-            bar.style.transform = 'translateX(-100%)';
-            const text = bar.querySelector('.about-text, .services-text, .contact-text');
-            if (text) {
-                text.setAttribute('data-text', text.innerText);
-                text.innerHTML = '';
-            }
-        }
-    });
-});
+// Navigation
+const toggle=$('.nav-toggle'),nav=$('#nav');toggle?.addEventListener('click',()=>{const open=nav.classList.toggle('open');toggle.setAttribute('aria-expanded',String(open))});$$('#nav a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
 
-function controlSideBars() {
-    const scrollPosition = window.scrollY;
-    const triggerPoints = [200, 800, 1400];
+// Reveal system
+const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.12});$$('.reveal').forEach(el=>io.observe(el));
 
-    triggerPoints.forEach((point, index) => {
-        const bar = document.getElementById(`bar${index + 1}`);
-        const text = bar.querySelector('.about-text, .services-text, .contact-text');
+// Animated technical field
+const canvas=$('#field'),ctx=canvas.getContext('2d');let points=[];function resize(){const dpr=Math.min(devicePixelRatio,2);canvas.width=innerWidth*dpr;canvas.height=innerHeight*dpr;canvas.style.width=innerWidth+'px';canvas.style.height=innerHeight+'px';ctx.setTransform(dpr,0,0,dpr,0,0);points=Array.from({length:Math.min(70,Math.floor(innerWidth/18))},()=>({x:Math.random()*innerWidth,y:Math.random()*innerHeight,vx:(Math.random()-.5)*.18,vy:(Math.random()-.5)*.18}))}function draw(){ctx.clearRect(0,0,innerWidth,innerHeight);ctx.fillStyle='rgba(140,255,189,.42)';ctx.strokeStyle='rgba(140,255,189,.08)';points.forEach((p,i)=>{p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>innerWidth)p.vx*=-1;if(p.y<0||p.y>innerHeight)p.vy*=-1;ctx.beginPath();ctx.arc(p.x,p.y,1.2,0,Math.PI*2);ctx.fill();for(let j=i+1;j<points.length;j++){const q=points[j],d=Math.hypot(p.x-q.x,p.y-q.y);if(d<115){ctx.globalAlpha=1-d/115;ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(q.x,q.y);ctx.stroke();ctx.globalAlpha=1}}});requestAnimationFrame(draw)}resize();draw();addEventListener('resize',resize);
 
-        if (scrollPosition > point) {
-            bar.style.transform = 'translateX(0)';
-            if (!text.classList.contains('typing-started')) {
-                text.classList.add('visible-text', 'typing-started');
-                startTypingEffect(text);
-            }
-        } else {
-            bar.style.transform = 'translateX(-100%)';
-            text.classList.remove('visible-text', 'typing-started');
-            stopTypingEffect(text);
-        }
-    });
-}
+// Real AI chat — all model calls go through /api/chat
+const chatForm=$('#chat-form'),chatInput=$('#chat-input'),chatLog=$('#chat-log'),aiStatus=$('#ai-status');let conversation=[];
+function message(role,text){const row=document.createElement('div');row.className=`message ${role}`;if(role==='assistant'){const avatar=document.createElement('div');avatar.className='avatar';avatar.textContent='MH';row.appendChild(avatar)}const body=document.createElement('div');const p=document.createElement('p');p.textContent=text;body.appendChild(p);row.appendChild(body);chatLog.appendChild(row);chatLog.scrollTop=chatLog.scrollHeight;return p}
+async function askAI(text){if(!text.trim())return;message('user',text);conversation.push({role:'user',content:text});chatInput.value='';chatInput.disabled=true;aiStatus.textContent='thinking';const output=message('assistant','');output.textContent='Connecting to secure AI endpoint…';try{const response=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({messages:conversation.slice(-12)})});const data=await response.json();if(!response.ok)throw new Error(data.error||'The assistant is temporarily unavailable.');output.textContent='';const answer=data.answer||'I could not generate a response.';let i=0;const timer=setInterval(()=>{output.textContent=answer.slice(0,++i);chatLog.scrollTop=chatLog.scrollHeight;if(i>=answer.length)clearInterval(timer)},7);conversation.push({role:'assistant',content:answer});aiStatus.textContent='ready'}catch(err){output.textContent=err.message.includes('API')?'The real AI endpoint is built, but the deployment still needs its private OPENAI_API_KEY environment variable.':'The assistant could not connect right now. Please try again or contact Michael directly.';aiStatus.textContent='offline'}finally{chatInput.disabled=false;chatInput.focus()}}
+chatForm?.addEventListener('submit',e=>{e.preventDefault();askAI(chatInput.value)});chatInput?.addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();chatForm.requestSubmit()}});$$('[data-prompt]').forEach(b=>b.addEventListener('click',()=>askAI(b.dataset.prompt)));
 
-window.addEventListener('scroll', controlSideBars);
+// Network troubleshooting simulator
+const scenarios={wifi:{fault:'gateway',title:'Likely DHCP or gateway path issue',steps:['Confirm whether one device or every device is affected.','Check the assigned IP address, subnet, gateway, and DNS values.','Test the local gateway before testing a public IP address.','If the gateway responds but public IPs do not, inspect router or ISP status.','Record tests and results before escalation.']},site:{fault:'dns',title:'Likely DNS, browser, or service-specific issue',steps:['Confirm other websites work.','Try a private window or another browser.','Resolve the hostname and compare with a known DNS resolver.','Test the service from another network or status page.','Clear only relevant cache after evidence is collected.']},vpn:{fault:'dns',title:'Likely identity, client, network, or VPN service issue',steps:['Verify internet access without the VPN.','Capture the exact client error and timestamp.','Confirm credentials, MFA, system time, and account status.','Test whether the required VPN host resolves and is reachable.','Escalate with client logs, device, network, and error details.']},printer:{fault:'lan',title:'Likely local network, addressing, or queue issue',steps:['Confirm the printer is powered on and has no local hardware error.','Check its current IP address against the configured printer port.','Ping the printer from the user device.','Restart the print queue only after checking stuck jobs.','Document whether the failure affects one user or the whole location.']},slow:{fault:'lan',title:'Performance issue requires comparison and isolation',steps:['Measure latency, packet loss, and throughput rather than relying on perception.','Compare wired versus Wi‑Fi and one device versus multiple devices.','Check signal strength, congestion, background transfers, and VPN overhead.','Compare local gateway latency with internet latency.','Escalate with repeatable measurements and timestamps.']}};
+$('#start-diagnostic')?.addEventListener('click',()=>{const key=$('#scenario').value,s=scenarios[key];$$('.device').forEach(d=>d.classList.remove('active','fail'));const nodes=$$('.device');let i=0;$('#diagnostic').innerHTML='<strong>Tracing the path…</strong>';const t=setInterval(()=>{if(i>0)nodes[i-1]?.classList.remove('active');if(i<nodes.length){nodes[i].classList.add('active');i++}else{clearInterval(t);const fault=$(`[data-device="${s.fault}"]`);fault.classList.remove('active');fault.classList.add('fail');$('#diagnostic').innerHTML=`<strong>${s.title}</strong><ol>${s.steps.map(x=>`<li>${x}</li>`).join('')}</ol>`}},430)});
 
-function startTypingEffect(element) {
-    const text = element.getAttribute('data-text');
-    let index = 0;
-    element.innerHTML = '';
+// SQL interactive project
+const tickets=[{id:1042,user:'A. Reed',category:'VPN',priority:'High',status:'Open'},{id:1043,user:'J. Kim',category:'Printer',priority:'Medium',status:'Open'},{id:1039,user:'S. Patel',category:'Account',priority:'High',status:'Resolved'},{id:1037,user:'M. Lopez',category:'Network',priority:'Low',status:'Resolved'}];
+const sqlViews={open:{q:"SELECT * FROM tickets WHERE status = 'Open';",rows:()=>tickets.filter(t=>t.status==='Open')},priority:{q:"SELECT * FROM tickets WHERE priority = 'High' ORDER BY id DESC;",rows:()=>tickets.filter(t=>t.priority==='High').sort((a,b)=>b.id-a.id)},resolved:{q:"SELECT id, user, category FROM tickets WHERE status = 'Resolved';",rows:()=>tickets.filter(t=>t.status==='Resolved')}};
+function renderSQL(view='open'){const v=sqlViews[view],rows=v.rows();$('#sql-query').textContent=v.q;$('#sql-results').innerHTML=`<table><thead><tr>${Object.keys(rows[0]).map(k=>`<th>${k}</th>`).join('')}</tr></thead><tbody>${rows.map(r=>`<tr>${Object.values(r).map(v=>`<td>${v}</td>`).join('')}</tr>`).join('')}</tbody></table>`}renderSQL();$$('[data-sql]').forEach(b=>b.addEventListener('click',()=>{$$('[data-sql]').forEach(x=>x.classList.remove('active'));b.classList.add('active');renderSQL(b.dataset.sql)}));
 
-    const typingInterval = setInterval(function () {
-        if (index < text.length) {
-            const span = document.createElement('span');
-            span.innerText = text[index];
-            span.style.opacity = '0';
-            element.appendChild(span);
-
-            setTimeout(function () {
-                span.style.opacity = '1';
-                span.style.transition = 'opacity 0.3s ease';
-            }, 10);
-
-            index++;
-        } else {
-            clearInterval(typingInterval);
-        }
-    }, 50);
-}
-
-function stopTypingEffect(element) {
-    element.innerHTML = '';
-}
-
-document.addEventListener('DOMContentLoaded', function () {
-    const emailModal = document.getElementById("emailModal");
-    const emailIcon = document.getElementById("email-icon");
-    const closeButtons = document.querySelectorAll('.close');
-
-    emailIcon.addEventListener('click', function () {
-        emailModal.style.display = "block";
-    });
-
-    closeButtons.forEach(button => {
-        button.addEventListener('click', function () {
-            emailModal.style.display = "none";
-        });
-    });
-
-    window.addEventListener('click', function (event) {
-        if (event.target === emailModal) {
-            emailModal.style.display = "none";
-        }
-    });
-
-    const form = document.getElementById("contact-form");
-    form.addEventListener('submit', function (event) {
-        event.preventDefault();
-        sendEmail();
-    });
-});
-
-function sendEmail() {
-    const email = document.getElementById("sender-email").value;
-    const message = document.getElementById("message").value;
-
-    if (email && message) {
-        window.location.href = `mailto:harrismike1922.com?subject=Message from ${email}&body=${message}`;
-    } else {
-        alert('Please fill in all the fields.');
-    }
-}
+// XML project
+const xml={source:'<manual id="A-204">\n  <title>System Overview</title>\n  <task status="draft">Inspect assembly</task>\n</manual>',validate:'VALIDATION RESULT\n✓ Required root element found\n✓ ID attribute present\n✓ Child sequence valid\n! Task status remains draft',publish:'PUBLISH PIPELINE\n1. Validate structured content\n2. Resolve referenced assets\n3. Apply output rules\n4. Generate delivery package'};$$('[data-xml]').forEach(b=>b.addEventListener('click',()=>{$('#xml-output').textContent=xml[b.dataset.xml]}));
