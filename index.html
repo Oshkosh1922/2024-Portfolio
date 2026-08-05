@@ -1,119 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Michael's Portfolio</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    <script>
-        (function() {
-            emailjs.init('aDqz4Bq-irRUf53OV');
-        })();
-    </script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Michael Harris — IT support, technical troubleshooting, Applied Computing, XML workflows, databases, and AI-assisted projects.">
+<title>Michael Harris | IT Support & Applied Computing</title>
+<style>
+:root{--bg:#07111f;--panel:#0d1b2e;--panel2:#11243b;--text:#eff6ff;--muted:#a8b7cc;--accent:#5eead4;--accent2:#60a5fa;--border:rgba(255,255,255,.11);--max:1160px}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:radial-gradient(circle at 15% 0%,#12345a 0,transparent 30%),var(--bg);color:var(--text);line-height:1.65}a{color:inherit;text-decoration:none}button,input,select{font:inherit}.wrap{width:min(var(--max),calc(100% - 34px));margin:auto}.nav{position:sticky;top:0;z-index:20;background:rgba(7,17,31,.84);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}.navin{min-height:70px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{font-weight:800;letter-spacing:.04em}.brand span{color:var(--accent)}.links{display:flex;gap:20px;color:var(--muted);font-size:.94rem}.links a:hover{color:#fff}.hero{padding:95px 0 70px;display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:center}.eyebrow{color:var(--accent);font-weight:800;text-transform:uppercase;letter-spacing:.15em;font-size:.76rem}.hero h1{font-size:clamp(3rem,8vw,6.5rem);line-height:.92;margin:14px 0 22px;letter-spacing:-.06em}.hero h1 span{display:block;color:var(--accent)}.lead{font-size:1.15rem;color:var(--muted);max-width:720px}.actions{display:flex;flex-wrap:wrap;gap:13px;margin-top:30px}.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:1px solid var(--border);border-radius:999px;padding:12px 18px;font-weight:750;background:transparent;color:#fff;cursor:pointer}.btn.primary{background:var(--accent);border-color:var(--accent);color:#04201d}.btn:hover{transform:translateY(-1px)}.hero-card{background:linear-gradient(145deg,rgba(17,36,59,.95),rgba(13,27,46,.9));border:1px solid var(--border);border-radius:28px;padding:28px;box-shadow:0 30px 80px rgba(0,0,0,.25)}.status{display:flex;align-items:center;gap:9px;color:var(--muted)}.dot{width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 20px var(--accent)}.statgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:24px}.stat{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:17px;padding:16px}.stat strong{font-size:1.45rem;display:block}.stat span{color:var(--muted);font-size:.86rem}section{padding:80px 0}.section-head{display:flex;justify-content:space-between;align-items:end;gap:25px;margin-bottom:30px}.section-head h2{font-size:clamp(2rem,4vw,3.4rem);line-height:1.05;margin:0}.section-head p{max-width:610px;color:var(--muted);margin:0}.panel{background:rgba(13,27,46,.8);border:1px solid var(--border);border-radius:26px;padding:24px}.assistant-grid{display:grid;grid-template-columns:.72fr 1.28fr;gap:20px}.suggestions{display:grid;gap:10px}.suggestion{width:100%;text-align:left;border:1px solid var(--border);background:rgba(255,255,255,.03);color:#fff;border-radius:14px;padding:13px;cursor:pointer}.suggestion:hover{border-color:var(--accent)}.chat{min-height:470px;display:flex;flex-direction:column}.messages{display:flex;flex-direction:column;gap:13px;flex:1;max-height:390px;overflow:auto;padding-right:4px}.msg{max-width:86%;padding:13px 15px;border-radius:17px}.msg.bot{background:var(--panel2);border:1px solid var(--border);align-self:flex-start}.msg.user{background:var(--accent);color:#04201d;align-self:flex-end}.chatbar{display:flex;gap:10px;margin-top:16px}.chatbar input{flex:1;min-width:0;border-radius:14px;border:1px solid var(--border);background:#07111f;color:#fff;padding:13px 15px}.chatbar button{border:0;background:var(--accent);color:#04201d;border-radius:14px;padding:0 18px;font-weight:800;cursor:pointer}.note{font-size:.78rem;color:var(--muted);margin-top:10px}.troubleshooter{display:grid;grid-template-columns:.75fr 1.25fr;gap:20px}.field label{display:block;font-weight:750;margin-bottom:8px}.field select{width:100%;border:1px solid var(--border);background:#07111f;color:#fff;border-radius:14px;padding:13px}.steps{display:grid;gap:11px;margin-top:18px}.step{display:grid;grid-template-columns:34px 1fr;gap:12px;align-items:start;padding:14px;border:1px solid var(--border);border-radius:15px;background:rgba(255,255,255,.025)}.num{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:var(--accent);color:#04201d;font-weight:850}.step h3{font-size:1rem;margin:0 0 3px}.step p{margin:0;color:var(--muted);font-size:.92rem}.projects{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}.project{display:flex;flex-direction:column;min-height:290px;background:linear-gradient(145deg,rgba(17,36,59,.9),rgba(13,27,46,.78));border:1px solid var(--border);border-radius:22px;padding:22px}.tag{align-self:flex-start;color:var(--accent);background:rgba(94,234,212,.09);border:1px solid rgba(94,234,212,.25);border-radius:999px;padding:5px 9px;font-size:.73rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em}.project h3{font-size:1.35rem;margin:18px 0 8px}.project p{color:var(--muted);margin:0}.project .bottom{margin-top:auto;padding-top:20px;font-weight:750}.timeline{display:grid;gap:16px}.role{display:grid;grid-template-columns:190px 1fr;gap:25px;border-top:1px solid var(--border);padding:24px 0}.role:first-child{border-top:0}.role .date{color:var(--accent);font-weight:800}.role h3{margin:0 0 6px}.role p{margin:0;color:var(--muted)}.contact{display:grid;grid-template-columns:1fr auto;align-items:center;gap:30px;background:linear-gradient(135deg,#12345a,#0d1b2e);border:1px solid var(--border);border-radius:28px;padding:38px}.contact h2{margin:0 0 8px;font-size:clamp(2rem,4vw,3.5rem)}.contact p{margin:0;color:var(--muted)}footer{padding:35px 0;color:var(--muted);font-size:.9rem}.footerin{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}@media(max-width:850px){.links{display:none}.hero,.assistant-grid,.troubleshooter{grid-template-columns:1fr}.hero{padding-top:65px}.projects{grid-template-columns:1fr 1fr}.role{grid-template-columns:1fr;gap:5px}.contact{grid-template-columns:1fr}}@media(max-width:590px){.projects{grid-template-columns:1fr}.hero h1{font-size:3.5rem}.section-head{display:block}.section-head p{margin-top:12px}.chatbar{flex-direction:column}.chatbar button{padding:12px}.statgrid{grid-template-columns:1fr}.contact{padding:25px}}
+</style>
 </head>
-
 <body>
-    <nav>
-        <ul></ul>
-    </nav>
-
-    <div id="spinning-letters">
-        <div class="letter">H</div>
-        <div class="letter">A</div>
-        <div class="letter">R</div>
-        <div class="letter">R</div>
-        <div class="letter">I</div>
-        <div class="letter">S</div>
-    </div>
-
-    <div id="bar1" class="side-bar left">
-        <div class="about-text" id="about-text">
-            Hey there! I'm Michael Harris, a creative web developer who loves building cool, interactive experiences. Whether it's a website that flows or something that pops, I’m always up for a new challenge—especially if it involves bringing people together.
-        </div>
-    </div>
-    
-    <div id="bar2" class="side-bar right">
-        <div class="services-text" id="services-text">
-            <h2>What I Bring to the Table:</h2><br>
-            <ul>
-                <li> - Web Development with a creative spin</li>
-                <li> - Unique, engaging digital designs</li>
-                <li> - Collaboration that turns ideas into fun, interactive experiences</li>
-            </ul>
-        </div>
-    </div>
-    
-    <div id="bar3" class="side-bar left">
-        <div class="contact-text" id="contact-text">
-            A Bit About My Process" "I believe great design and development isnt just about code—its about creating experiences that people love to engage with. Whether Im diving into web design, collaborating on creative projects, or just brainstorming new ideas, I always aim to build something that stands out. My work blends functionality with a touch of fun, because who says creativity can't be practical too?
-        </div>
-    </div>
-
-    <div class="button-container">
-       
-
-        <a href="https://calendly.com/softwaremike/meeting" target="_blank"><i class="fa-solid fa-calendar-days"></i></a>
-    </div>
-
-    <div style="height: 3000px;"></div>
-
-    <script src="js/port.js"></script>
-    <script>
-        const emailIcon = document.getElementById('email-icon');
-        const emailModal = document.getElementById('emailModal');
-        const closeModal = document.querySelector('.close');
-
-        emailIcon.addEventListener('click', function () {
-            emailModal.style.display = 'block';
-        });
-
-        closeModal.addEventListener('click', function () {
-            emailModal.style.display = 'none';
-        });
-
-        window.addEventListener('click', function (event) {
-            if (event.target === emailModal) {
-                emailModal.style.display = 'none';
-            }
-        });
-
-        const form = document.getElementById("contact-form");
-        form.addEventListener("submit", function(event) {
-            event.preventDefault();
-
-            const senderEmail = document.getElementById("sender-email").value;
-            const message = document.getElementById("message").value;
-
-            const templateParams = {
-                from_email: senderEmail,
-                message: message
-            };
-
-            emailjs.send('service_68xzqis', 'template_05fgug1', templateParams) 
-                .then(function(response) {
-                    alert('Email sent successfully!');
-                    form.reset();
-                    emailModal.style.display = 'none';
-                }, function(error) {
-                    alert('Failed to send email. Please try again later.');
-                });
-        });
-    </script>
+<nav class="nav"><div class="wrap navin"><a class="brand" href="#top">MICHAEL<span>.</span>HARRIS</a><div class="links"><a href="#assistant">AI Assistant</a><a href="#troubleshooter">Troubleshooter</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#contact">Contact</a></div></div></nav>
+<main id="top">
+<div class="wrap hero"><div><div class="eyebrow">IT Support · Applied Computing · AI Builder</div><h1>I build.<span>I troubleshoot.</span>I learn.</h1><p class="lead">I'm Michael Harris, a technical professional transitioning into IT support. I bring production troubleshooting, customer-facing problem solving, XML workflows, database experience, remote collaboration, and a growing portfolio of practical technology projects.</p><div class="actions"><a class="btn primary" href="#assistant">Talk with my AI assistant</a><a class="btn" href="resume.html">View resume</a><a class="btn" href="https://github.com/Oshkosh1922" target="_blank" rel="noopener">GitHub</a></div></div><aside class="hero-card"><div class="status"><span class="dot"></span>Open to remote IT support opportunities</div><div class="statgrid"><div class="stat"><strong>B.S.</strong><span>Applied Computing, in progress</span></div><div class="stat"><strong>4+ yrs</strong><span>Technical production experience</span></div><div class="stat"><strong>Hybrid + remote</strong><span>Independent collaboration experience</span></div><div class="stat"><strong>XML · SQL · Java</strong><span>Technical foundation</span></div></div></aside></div>
+<section id="assistant"><div class="wrap"><div class="section-head"><div><div class="eyebrow">Interactive profile</div><h2>Ask Michael's assistant</h2></div><p>Explore my experience, education, projects, remote-work background, and fit for IT support. This first release uses a verified local knowledge base so it does not invent credentials.</p></div><div class="assistant-grid"><div class="panel"><h3>Try a question</h3><div class="suggestions"><button class="suggestion">Why is Michael a strong fit for IT support?</button><button class="suggestion">Tell me about his experience at Norka.</button><button class="suggestion">What does he do with XML?</button><button class="suggestion">Is he comfortable working remotely?</button><button class="suggestion">What is TCG Signal?</button><button class="suggestion">How can I contact Michael?</button></div></div><div class="panel chat"><div id="messages" class="messages" aria-live="polite"><div class="msg bot">Hi — I'm Michael's portfolio assistant. Ask me about his work history, technical skills, projects, education, or career goals.</div></div><div class="chatbar"><input id="chatInput" aria-label="Ask the portfolio assistant" placeholder="Ask about Michael's experience…"><button id="sendBtn" type="button">Send</button></div><div class="note">Portfolio demo. A secure server-side generative AI version is planned for the next release.</div></div></div></div></section>
+<section id="troubleshooter"><div class="wrap"><div class="section-head"><div><div class="eyebrow">Live demo</div><h2>Network troubleshooter</h2></div><p>Select a common support issue to see a structured first-response troubleshooting path. The demo emphasizes isolation, verification, clear communication, and appropriate escalation.</p></div><div class="troubleshooter"><div class="panel"><div class="field"><label for="issue">Choose an issue</label><select id="issue"><option value="internet">No internet connection</option><option value="wifi">Wi-Fi connected, but no internet</option><option value="site">One website will not load</option><option value="vpn">VPN will not connect</option><option value="printer">Network printer is unreachable</option><option value="slow">Connection is unusually slow</option></select></div><button class="btn primary" id="runTroubleshooter" type="button" style="margin-top:15px">Build troubleshooting plan</button><p class="note">This is an educational demonstration, not a replacement for an organization's support procedures.</p></div><div class="panel"><div id="steps" class="steps"></div></div></div></div></section>
+<section id="projects"><div class="wrap"><div class="section-head"><div><div class="eyebrow">Selected work</div><h2>Projects with a purpose</h2></div><p>Each project is designed to demonstrate a practical skill employers can evaluate rather than merely list another technology.</p></div><div class="projects"><article class="project"><span class="tag">Interactive demo</span><h3>Live Network Troubleshooter</h3><p>A browser-based decision guide demonstrating symptom collection, issue isolation, connectivity checks, DNS reasoning, and escalation.</p><div class="bottom"><a href="#troubleshooter">Try the demo →</a></div></article><article class="project"><span class="tag">Database</span><h3>SQL Project</h3><p>A planned interactive database explorer based on academic database work, including structured queries, relationships, and practical reporting.</p><div class="bottom">In development</div></article><article class="project"><span class="tag">AI</span><h3>Portfolio Assistant</h3><p>An interactive recruiter-facing assistant that explains verified experience, projects, skills, and career goals without overstating credentials.</p><div class="bottom"><a href="#assistant">Start a conversation →</a></div></article><article class="project"><span class="tag">Product</span><h3>TCG Signal</h3><p>A trading-card-focused software project reflecting product thinking, interface design, data-driven decision support, and iterative development.</p><div class="bottom">Case study coming next</div></article><article class="project"><span class="tag">Production systems</span><h3>XML Workflow Project</h3><p>A visual case study showing how structured content moves through technical documentation workflows and how production issues are diagnosed.</p><div class="bottom">Case study in development</div></article><article class="project"><span class="tag">Infrastructure</span><h3>Home Lab</h3><p>A future documented environment for Windows administration, networking, DNS, DHCP, identity, and remote-support practice. No unearned claims—only completed lab work will be published.</p><div class="bottom">Planned build</div></article></div></div></section>
+<section id="experience"><div class="wrap"><div class="section-head"><div><div class="eyebrow">Technical background</div><h2>Experience that transfers</h2></div><p>My career has consistently involved technical problem solving, accuracy, collaboration, customer support, and learning complex production systems.</p></div><div class="panel timeline"><div class="role"><div class="date">Mar 2026 — Present</div><div><h3>Senior Technical Illustrator · O'Neil</h3><p>Troubleshoot XML-based documentation and production workflows, collaborate with engineering and cross-functional teams, and maintain accurate technical deliverables in a complex environment.</p></div></div><div class="role"><div class="date">Oct 2021 — Apr 2024</div><div><h3>Pre-Production Engineer · Norka Inc.</h3><p>Provided technical support to customers and internal teams, supported databases and programming-related workflows, and diagnosed software, file, and production issues in a hybrid work environment.</p></div></div><div class="role"><div class="date">Expected 2027</div><div><h3>B.S. Applied Computing · UW–Oshkosh</h3><p>Remote coursework spanning programming, databases, networking fundamentals, cybersecurity fundamentals, project management, and technical problem solving.</p></div></div></div></div></section>
+<section id="contact"><div class="wrap contact"><div><div class="eyebrow">Let's connect</div><h2>Looking for a dependable technical problem solver?</h2><p>I'm pursuing remote Help Desk, IT Support, Technical Support, and related entry-level opportunities.</p></div><div class="actions"><a class="btn primary" href="mailto:harrismi16@uwosh.edu">Email Michael</a><a class="btn" href="https://www.linkedin.com/in/michaelharris1922" target="_blank" rel="noopener">LinkedIn</a></div></div></section>
+</main>
+<footer><div class="wrap footerin"><span>© 2026 Michael Harris</span><span>Built to demonstrate troubleshooting, communication, and continuous learning.</span></div></footer>
+<script>
+const knowledge={
+fit:"Michael is a strong entry-level IT support candidate because he already solves technical workflow problems professionally, has customer-facing support experience, communicates with cross-functional teams, and is completing a B.S. in Applied Computing. He is deliberately moving toward Help Desk and IT Support rather than applying without a technical foundation.",
+norka:"At Norka, Michael worked as a Pre-Production Engineer in a hybrid environment. His responsibilities included technical support for customers and internal teams, database-related work, programming assistance, file and production troubleshooting, and delivering practical issue resolution.",
+xml:"In his current Senior Technical Illustrator role, Michael works with XML-based technical documentation workflows. He troubleshoots formatting, content-structure, and production issues and collaborates with engineers and other teams to maintain accurate deliverables.",
+remote:"Yes. Michael's Applied Computing education is remote, and his Pre-Production Engineer position at Norka was hybrid. Those experiences required independent work, virtual communication, organization, and consistent follow-through.",
+tcg:"TCG Signal is Michael's trading-card-focused software project. It reflects his interest in building useful products, working with data, improving interfaces, and iterating on a real application. A complete portfolio case study is being prepared.",
+contact:"Michael can be reached at harrismi16@uwosh.edu. You can also use the LinkedIn and email buttons in the contact section of this site.",
+skills:"Michael's verified technical foundation includes Windows 10/11, macOS, XML, SQL, Java, JavaScript, C#, Git/GitHub, Microsoft 365, Adobe Creative Suite, database fundamentals, networking fundamentals, troubleshooting, documentation, and AI-assisted workflows. Linux is intentionally not listed because he has not claimed Linux experience.",
+education:"Michael is completing a Bachelor of Science in Applied Computing at the University of Wisconsin–Oshkosh, expected in 2027. Relevant areas include programming, databases, networking fundamentals, cybersecurity fundamentals, project management, and software development.",
+ai:"Michael uses AI as a practical productivity and building tool for technical research, documentation, workflow improvement, ideation, and software projects. He presents this as AI-assisted work—not as unsupported expert-level machine-learning experience."
+};
+function answer(q){const s=q.toLowerCase();if(s.includes("why")||s.includes("fit")||s.includes("hire"))return knowledge.fit;if(s.includes("norka")||s.includes("pre-production"))return knowledge.norka;if(s.includes("xml")||s.includes("o'neil")||s.includes("oneil"))return knowledge.xml;if(s.includes("remote")||s.includes("hybrid"))return knowledge.remote;if(s.includes("tcg")||s.includes("signal")||s.includes("card"))return knowledge.tcg;if(s.includes("contact")||s.includes("email")||s.includes("reach"))return knowledge.contact;if(s.includes("skill")||s.includes("technology")||s.includes("language")||s.includes("windows")||s.includes("linux"))return knowledge.skills;if(s.includes("school")||s.includes("education")||s.includes("degree")||s.includes("course"))return knowledge.education;if(s.includes(" ai")||s.startsWith("ai")||s.includes("artificial"))return knowledge.ai;return "I can answer verified questions about Michael's IT-support fit, Norka experience, XML work, remote background, technical skills, education, TCG Signal, AI-assisted work, or contact information. Try asking one of those directly."}
+const messages=document.getElementById("messages"),input=document.getElementById("chatInput");function add(text,type){const d=document.createElement("div");d.className="msg "+type;d.textContent=text;messages.appendChild(d);messages.scrollTop=messages.scrollHeight}function send(text){const q=(text||input.value).trim();if(!q)return;add(q,"user");input.value="";setTimeout(()=>add(answer(q),"bot"),250)}document.getElementById("sendBtn").addEventListener("click",()=>send());input.addEventListener("keydown",e=>{if(e.key==="Enter")send()});document.querySelectorAll(".suggestion").forEach(b=>b.addEventListener("click",()=>send(b.textContent)));
+const plans={internet:[["Confirm scope","Determine whether one device, multiple devices, or the entire location is affected."],["Check physical and wireless state","Verify airplane mode, Wi-Fi or Ethernet status, cables, link lights, and whether the correct network is selected."],["Validate addressing","Confirm the device received a valid IP address, gateway, and DNS configuration rather than a self-assigned address."],["Test in layers","Test the gateway, then a public IP, then a domain name to separate local connectivity, internet reachability, and DNS."],["Restore or escalate","Renew the connection, restart the appropriate network component according to policy, document results, and escalate outages with evidence."]],wifi:[["Verify association","Confirm the device is connected to the intended SSID and has adequate signal strength."],["Compare devices","Check whether another device on the same Wi-Fi network can reach the internet."],["Inspect IP configuration","Look for a valid private IP, default gateway, and DNS servers."],["Separate DNS from routing","Test a known IP address and then a domain name."],["Reauthenticate and document","Forget and rejoin the network when appropriate, record results, and escalate access-point or upstream issues."]],site:[["Confirm the symptom","Check the exact URL, browser message, and whether the issue occurs in another browser."],["Compare destinations","Open other sites to verify general internet access."],["Check name resolution","Test whether the domain resolves and whether another network can reach it."],["Rule out local factors","Review cache, extensions, proxy settings, date/time, and security filtering according to policy."],["Escalate with evidence","Provide the URL, timestamp, error, device, network, and test results."]],vpn:[["Capture the error","Record the exact VPN client message and when the failure began."],["Verify base connectivity","Confirm normal internet access works before troubleshooting the tunnel."],["Check identity and time","Verify credentials, MFA flow, account status, and accurate system time."],["Review client state","Confirm the correct profile, client version, and that another VPN session is not conflicting."],["Escalate securely","Document logs and tests without exposing secrets, then route authentication, gateway, or policy failures appropriately."]],printer:[["Define reachability","Confirm the printer name or IP, user scope, and whether the device shows an error locally."],["Check network path","Verify the workstation and printer are on the expected network and test reachability where allowed."],["Inspect the queue","Review stuck jobs, paused status, selected printer, and spooler state."],["Validate configuration","Confirm the port or mapped printer points to the current address and the correct driver is installed."],["Resolve or escalate","Clear safe queue issues, remap according to procedure, document findings, and escalate hardware or print-server faults."]],slow:[["Measure the symptom","Record expected versus observed performance, time, application, and whether latency or throughput is the issue."],["Establish scope","Compare wired versus wireless, another device, and another service."],["Check local causes","Review signal strength, background transfers, resource usage, and cable or adapter state."],["Test network quality","Measure latency, packet loss, and throughput using approved tools and endpoints."],["Document patterns","Record times, devices, locations, and test results before escalating congestion, ISP, access-point, or application issues."]]};
+function renderPlan(){const key=document.getElementById("issue").value,out=document.getElementById("steps");out.innerHTML="";plans[key].forEach((x,i)=>{const el=document.createElement("div");el.className="step";el.innerHTML=`<span class="num">${i+1}</span><div><h3>${x[0]}</h3><p>${x[1]}</p></div>`;out.appendChild(el)})}document.getElementById("runTroubleshooter").addEventListener("click",renderPlan);document.getElementById("issue").addEventListener("change",renderPlan);renderPlan();
+</script>
 </body>
-
-<footer>
-    <a href="https://github.com/oshkosh1922" target="_blank"><i class="fa-brands fa-github"></i></a>
-
-
-
-    <a href="https://www.linkedin.com/in/michaelharris1922" target="_blank">
-        <i class="fa-brands fa-linkedin"></i></a>
-
-    <p class="footer-text">Designed by Michael Harris 2024 © </p>
-</footer>
-
 </html>
