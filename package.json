@@ -1,0 +1,8 @@
+{
+  "name": "michael-harris-portfolio",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "openai": "latest"
+  }
+}
