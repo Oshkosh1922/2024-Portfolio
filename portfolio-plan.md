@@ -1,17 +1,19 @@
-# Portfolio Rebuild
+# Portfolio — Job-Ready Release
 
-This branch introduces the first recruiter-focused release of Michael Harris's portfolio.
+This repository contains the recruiter-focused portfolio for Michael Harris.
 
-## Included
-- IT-support-focused homepage and navigation
-- Interactive portfolio assistant using verified profile data
-- Live network troubleshooting decision demo
-- Featured project cards for SQL, TCG Signal, XML workflows, and a future home lab
-- GitHub, resume, and contact calls to action
-- Responsive layout and accessible controls
+## Current release
+- Responsive technical-support-focused homepage
+- Recruiter shortcut with verified experience and capability summaries
+- Interactive support diagnostics lab for common network, VPN, printer, and connectivity incidents
+- Interactive SQL support-queue explorer with sample operational queries
+- Selected project notes for TCG Signal and XML-based structured documentation work
+- Technical skills, professional experience, education, contact links, GitHub, and LinkedIn
+- Matching print-friendly resume page
+- No placeholder projects or unearned skill claims in the public experience
 
-## Next phase
-- Connect the assistant to a secure server-side AI endpoint
-- Add real project screenshots and repository links
-- Publish a completed SQL explorer and documented home lab
-- Add live GitHub API data through a serverless endpoint
+## Design intent
+The site is intentionally built as a lightweight static experience with HTML, CSS, and JavaScript. It is fast, portable, easy to host, and gives recruiters concrete interactions that demonstrate troubleshooting and data reasoning instead of relying on a long list of keywords.
+
+## Maintenance
+Keep claims tied to completed work or verified experience. Add new projects only when there is something meaningful for a recruiter to view, run, or evaluate.
