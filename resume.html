@@ -2,29 +2,114 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Michael Harris — IT Support and Technical Support resume.">
 <title>Michael Harris | IT Support Resume</title>
 <style>
-body{font-family:Arial,Helvetica,sans-serif;max-width:850px;margin:40px auto;padding:0 24px;color:#172033;line-height:1.45}h1{margin-bottom:4px}h2{font-size:1rem;text-transform:uppercase;border-bottom:2px solid #172033;padding-bottom:5px;margin-top:22px}.meta,.sub{color:#4c5870}.job{display:flex;justify-content:space-between;gap:20px;font-weight:700}.print{position:fixed;right:24px;top:24px;background:#172033;color:#fff;border:0;border-radius:8px;padding:10px 14px;cursor:pointer}ul{margin-top:6px}@media print{.print{display:none}body{margin:0;max-width:none;font-size:11pt}}
+:root{--ink:#142033;--muted:#596779;--line:#dbe2ea;--accent:#0b766b;--paper:#fff;--bg:#edf1f5}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,Arial,Helvetica,sans-serif;line-height:1.42;-webkit-font-smoothing:antialiased}
+.toolbar{position:sticky;top:0;z-index:10;display:flex;justify-content:center;gap:10px;padding:12px;background:rgba(237,241,245,.93);backdrop-filter:blur(10px);border-bottom:1px solid #d7dee6}
+.btn{border:1px solid #cbd5df;border-radius:999px;background:#fff;color:var(--ink);padding:9px 14px;font-weight:750;cursor:pointer;text-decoration:none}
+.btn.primary{background:var(--ink);border-color:var(--ink);color:#fff}
+.page{width:min(8.5in,calc(100% - 28px));min-height:11in;margin:24px auto 48px;background:var(--paper);box-shadow:0 24px 80px rgba(30,45,60,.14);padding:.55in .62in}
+header{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:end;padding-bottom:16px;border-bottom:2px solid var(--ink)}
+h1{font-size:31px;line-height:1;margin:0 0 7px;letter-spacing:-.025em}
+.headline{font-weight:800;color:var(--accent);font-size:13px;letter-spacing:.02em}
+.contact{text-align:right;color:var(--muted);font-size:11.5px}.contact a{color:inherit;text-decoration:none}
+section{margin-top:17px}
+h2{font-size:10.5px;text-transform:uppercase;letter-spacing:.15em;margin:0 0 9px;color:var(--accent)}
+p{font-size:11.4px;margin:0;color:#293649}
+.skills{display:grid;grid-template-columns:1fr 1fr;gap:8px 22px;font-size:10.8px}
+.skills div{padding-bottom:6px;border-bottom:1px solid var(--line)}.skills strong{display:block;font-size:10.2px;text-transform:uppercase;letter-spacing:.05em;margin-bottom:2px}
+.job{margin-top:13px}.job:first-of-type{margin-top:0}
+.jobhead{display:flex;justify-content:space-between;gap:16px;align-items:baseline}
+.jobtitle{font-size:12px;font-weight:850}.company{font-weight:700;color:#3c4b5e}.date{font-size:10.5px;color:var(--muted);white-space:nowrap}
+ul{margin:5px 0 0 17px;padding:0}li{font-size:10.8px;color:#344255;margin:3px 0}
+.education{display:flex;justify-content:space-between;gap:20px}.education strong{font-size:11.5px}.education span{font-size:10.8px;color:var(--muted)}
+.projects{display:grid;grid-template-columns:1fr 1fr;gap:9px 20px}.project strong{display:block;font-size:11px}.project span{display:block;font-size:10.5px;color:var(--muted);margin-top:1px}
+.footer-note{margin-top:14px;padding-top:9px;border-top:1px solid var(--line);font-size:9.7px;color:var(--muted)}
+@media(max-width:650px){header{grid-template-columns:1fr}.contact{text-align:left}.skills,.projects{grid-template-columns:1fr}.page{padding:28px 24px}.jobhead,.education{display:block}.date{display:block;margin-top:2px}}
+@media print{
+ @page{size:letter;margin:0}
+ body{background:#fff}.toolbar{display:none}.page{width:8.5in;min-height:11in;margin:0;box-shadow:none;padding:.45in .55in}
+ a{color:inherit!important;text-decoration:none!important}
+}
 </style>
 </head>
 <body>
-<button class="print" onclick="window.print()">Save as PDF / Print</button>
-<h1>Michael Harris</h1>
-<div class="sub"><strong>IT Support Specialist | Technical Support | Applied Computing</strong></div>
-<div class="meta">Menasha, WI · (920) 515-8984 · harrismi16@uwosh.edu</div>
-<h2>Professional Summary</h2>
-<p>Technical professional experienced in troubleshooting production workflows, supporting cross-functional teams, and resolving technical issues. Currently completing a Bachelor of Science in Applied Computing with coursework in programming, databases, networking fundamentals, project management, and cybersecurity. Seeking a remote IT Support or Help Desk role where strong troubleshooting, communication, and customer service skills can contribute immediately.</p>
-<h2>Technical Skills</h2>
-<p><strong>Operating Systems:</strong> Windows 10/11, macOS<br><strong>Support:</strong> Hardware and software troubleshooting, end-user support, remote collaboration, technical documentation, root-cause analysis<br><strong>Programming:</strong> Java, JavaScript, C#, SQL<br><strong>Technologies:</strong> XML, Git/GitHub, Microsoft 365, Adobe Creative Suite, AI-assisted workflows<br><strong>Knowledge:</strong> Networking fundamentals, database management</p>
-<h2>Professional Experience</h2>
-<div class="job"><span>Senior Technical Illustrator — O'Neil</span><span>Mar 2026–Present</span></div>
-<ul><li>Troubleshoot XML-based documentation workflows and production issues.</li><li>Collaborate with engineers and cross-functional teams to resolve technical problems.</li><li>Maintain accuracy across complex technical documentation systems.</li><li>Analyze workflow issues and implement efficient solutions.</li></ul>
-<div class="job"><span>Pre-Production Engineer — Norka Inc.</span><span>Oct 2021–Apr 2024</span></div>
-<ul><li>Provided technical support to customers and internal teams.</li><li>Assisted with database management and programming-related workflows.</li><li>Diagnosed software and production issues.</li><li>Delivered technical support and issue resolution in a fast-paced environment.</li></ul>
-<h2>Education</h2>
-<p><strong>Bachelor of Science, Applied Computing</strong> — University of Wisconsin–Oshkosh<br>Expected 2027</p>
-<h2>Selected Projects</h2>
-<p>Portfolio Website · TCG Signal · AI-assisted workflow automation · Programming and database projects</p>
+<div class="toolbar">
+  <a class="btn" href="index.html">← Portfolio</a>
+  <button class="btn primary" onclick="window.print()">Save as PDF / Print</button>
+</div>
+
+<main class="page">
+<header>
+  <div>
+    <h1>Michael Harris</h1>
+    <div class="headline">IT SUPPORT · TECHNICAL SUPPORT · APPLIED COMPUTING</div>
+  </div>
+  <div class="contact">
+    Menasha, WI · (920) 515-8984<br>
+    <a href="mailto:harrismi16@uwosh.edu">harrismi16@uwosh.edu</a> ·
+    <a href="https://www.linkedin.com/in/michaelharris1922">LinkedIn</a> ·
+    <a href="https://github.com/Oshkosh1922">GitHub</a>
+  </div>
+</header>
+
+<section>
+  <h2>Professional Summary</h2>
+  <p>Technical professional experienced in troubleshooting production workflows, supporting customers and cross-functional teams, and resolving software, file, and structured-content issues. Currently completing a B.S. in Applied Computing with coursework in programming, databases, networking fundamentals, cybersecurity, and project management. Seeking a remote IT Support, Help Desk, or Technical Support role where strong troubleshooting, documentation, and communication skills can contribute immediately.</p>
+</section>
+
+<section>
+  <h2>Technical Skills</h2>
+  <div class="skills">
+    <div><strong>Support & Systems</strong>Windows 10/11, macOS, end-user troubleshooting, remote collaboration, Microsoft 365</div>
+    <div><strong>Data & Structured Content</strong>SQL, database fundamentals, XML, structured documentation workflows</div>
+    <div><strong>Programming & Tools</strong>Java, JavaScript, C#, Git/GitHub, AI-assisted workflows</div>
+    <div><strong>Production</strong>Adobe Creative Suite, technical documentation, root-cause analysis, cross-functional support</div>
+  </div>
+</section>
+
+<section>
+  <h2>Professional Experience</h2>
+  <div class="job">
+    <div class="jobhead"><div class="jobtitle">Senior Technical Illustrator <span class="company">— O'Neil</span></div><div class="date">Mar 2026–Present</div></div>
+    <ul>
+      <li>Troubleshoot XML-based technical documentation workflows and production issues in a complex, accuracy-critical environment.</li>
+      <li>Collaborate with engineers and cross-functional teams to diagnose problems and maintain accurate technical deliverables.</li>
+      <li>Trace visual and content issues through structured workflows to identify underlying causes rather than only correcting symptoms.</li>
+      <li>Use Adobe production tools and established documentation processes to deliver consistent technical output.</li>
+    </ul>
+  </div>
+  <div class="job">
+    <div class="jobhead"><div class="jobtitle">Pre-Production Engineer <span class="company">— Norka Inc.</span></div><div class="date">Oct 2021–Apr 2024</div></div>
+    <ul>
+      <li>Provided technical support to customers and internal teams in a fast-paced production environment.</li>
+      <li>Diagnosed software, file, and workflow issues and communicated practical next steps to users and teammates.</li>
+      <li>Assisted with database management and programming-related workflows supporting pre-production operations.</li>
+      <li>Worked effectively in a hybrid environment requiring independent problem solving, organization, and virtual collaboration.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2>Education</h2>
+  <div class="education"><div><strong>Bachelor of Science, Applied Computing — University of Wisconsin–Oshkosh</strong><br><span>Remote program · Programming, databases, networking fundamentals, cybersecurity, project management, software development</span></div><div class="date">Expected 2027</div></div>
+</section>
+
+<section>
+  <h2>Selected Technical Work</h2>
+  <div class="projects">
+    <div class="project"><strong>Support Diagnostics Lab</strong><span>Interactive troubleshooting paths for network, VPN, printer, and connectivity incidents.</span></div>
+    <div class="project"><strong>SQL Support Queue Explorer</strong><span>Browser-based demo translating operational support questions into SQL queries and result sets.</span></div>
+    <div class="project"><strong>TCG Signal</strong><span>Trading-card software project focused on product thinking, data-driven decision support, and AI-assisted development.</span></div>
+    <div class="project"><strong>Portfolio Website</strong><span>Recruiter-focused responsive site with interactive technical demonstrations built in HTML, CSS, and JavaScript.</span></div>
+  </div>
+</section>
+
+<div class="footer-note">Portfolio: michaeldeanharris.com · References available upon request.</div>
+</main>
 </body>
 </html>
