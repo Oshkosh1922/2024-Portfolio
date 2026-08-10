@@ -7,14 +7,19 @@
 <meta name="theme-color" content="#f3f1eb">
 <title>Michael Harris — Resume</title>
 <style>
-:root{--paper:#f3f1eb;--ink:#111;--muted:#6b6b65;--line:#d9d5cc;--accent:#2357ff}*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.bar{height:76px;padding:0 max(20px,calc((100vw - 1180px)/2));display:flex;align-items:center;justify-content:space-between;gap:20px;border-bottom:1px solid var(--line);background:rgba(243,241,235,.92);backdrop-filter:blur(14px);position:sticky;top:0;z-index:10}.brand{font-weight:850;letter-spacing:-.03em;text-decoration:none;color:var(--ink)}.actions{display:flex;gap:9px}.btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 14px;border:1px solid var(--ink);text-decoration:none;color:var(--ink);font-size:.82rem;font-weight:700;background:transparent}.btn.primary{background:var(--ink);color:var(--paper)}.btn.primary:hover{background:var(--accent);border-color:var(--accent)}.viewer{width:min(940px,calc(100% - 32px));height:calc(100vh - 108px);margin:16px auto;position:relative;background:#fff;border:1px solid var(--line);box-shadow:0 18px 50px rgba(0,0,0,.08)}iframe{border:0;width:100%;height:100%;display:block}.loading{position:absolute;inset:0;display:grid;place-items:center;background:#fff;color:var(--muted);font-size:.9rem}@media(max-width:620px){.bar{height:68px;padding:0 14px}.brand{display:none}.actions{width:100%;justify-content:space-between}.viewer{width:100%;height:calc(100vh - 68px);margin:0;border:0;box-shadow:none}.btn{padding:9px 12px}}
+:root{--paper:#f3f1eb;--ink:#111;--muted:#6b6b65;--line:#d9d5cc;--accent:#2357ff}*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.bar{height:76px;padding:0 max(20px,calc((100vw - 1180px)/2));display:flex;align-items:center;justify-content:space-between;gap:20px;border-bottom:1px solid var(--line);background:rgba(243,241,235,.92);backdrop-filter:blur(14px);position:sticky;top:0;z-index:10}.brand{font-weight:850;letter-spacing:-.03em;text-decoration:none;color:var(--ink)}.actions{display:flex;gap:9px}.btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 14px;border:1px solid var(--ink);text-decoration:none;color:var(--ink);font-size:.82rem;font-weight:700;background:transparent}.btn.primary{background:var(--ink);color:var(--paper)}.btn.primary:hover{background:var(--accent);border-color:var(--accent)}.viewer{width:min(940px,calc(100% - 32px));height:calc(100vh - 108px);margin:16px auto;background:#fff;border:1px solid var(--line);box-shadow:0 18px 50px rgba(0,0,0,.08)}iframe{border:0;width:100%;height:100%;display:block}@media(max-width:620px){.bar{height:68px;padding:0 14px}.brand{display:none}.actions{width:100%;justify-content:space-between}.viewer{width:100%;height:calc(100vh - 68px);margin:0;border:0;box-shadow:none}.btn{padding:9px 12px}}
 </style>
 </head>
 <body>
-<header class="bar"><a class="brand" href="index.html">Michael Harris</a><div class="actions"><a class="btn" href="index.html">← Portfolio</a><a class="btn primary" id="downloadResume" href="#">Download PDF ↓</a></div></header>
-<main class="viewer"><iframe id="resumeFrame" title="Michael Harris IT Support Resume"></iframe><div class="loading" id="loading">Loading résumé…</div></main>
-<script>
-(async()=>{try{const paths=Array.from({length:8},(_,i)=>`assets/resume/part-${i}.txt`);const chunks=await Promise.all(paths.map(async p=>{const r=await fetch(p,{cache:'no-store'});if(!r.ok)throw new Error(`Could not load ${p}`);return r.text()}));const b64=chunks.join('').replace(/\s+/g,'');const raw=atob(b64);const bytes=new Uint8Array(raw.length);for(let i=0;i<raw.length;i++)bytes[i]=raw.charCodeAt(i);const blob=new Blob([bytes],{type:'application/pdf'});const url=URL.createObjectURL(blob);document.getElementById('resumeFrame').src=url+'#view=FitH&toolbar=1';const dl=document.getElementById('downloadResume');dl.href=url;dl.download='Michael_Harris_IT_Support_Resume.pdf';document.getElementById('loading').remove();window.addEventListener('beforeunload',()=>URL.revokeObjectURL(url))}catch(err){console.error(err);document.getElementById('loading').textContent='The résumé could not load. Refresh the page to try again.'}})();
-</script>
+<header class="bar">
+  <a class="brand" href="index.html">Michael Harris</a>
+  <div class="actions">
+    <a class="btn" href="index.html">← Portfolio</a>
+    <a class="btn primary" href="assets/Michael_Harris_IT_Support_Resume.pdf" download="Michael_Harris_IT_Support_Resume.pdf">Download PDF ↓</a>
+  </div>
+</header>
+<main class="viewer">
+  <iframe src="assets/Michael_Harris_IT_Support_Resume.pdf#view=FitH&toolbar=1" title="Michael Harris IT Support Resume"></iframe>
+</main>
 </body>
 </html>
