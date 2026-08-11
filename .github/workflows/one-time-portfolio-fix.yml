@@ -1,0 +1,54 @@
+name: One-time portfolio fix
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/one-time-portfolio-fix.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Patch portfolio index
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('index.html')
+          s = p.read_text(encoding='utf-8')
+
+          theme = '<meta name="theme-color" content="#f3f1eb">'
+          if '<meta name="color-scheme"' not in s:
+              s = s.replace(theme, theme + '\n<meta name="color-scheme" content="light">\n<meta name="supported-color-schemes" content="light">', 1)
+
+          if ':root{color-scheme:only light;' not in s:
+              s = s.replace(':root{--paper:', ':root{color-scheme:only light;--paper:', 1)
+
+          old = '<article class="project"><div class="num">04</div><div><h3>TCG Signal</h3><p>A trading-card technology product using AI-assisted development for prototyping, debugging, feature planning, mobile usability, application logic, and deployment problem solving.</p></div><div class="meta">Product · AI</div></article>'
+          new = '<article class="project"><div class="num">04</div><div><h3>TCG Signal</h3><p>A trading-card technology product using AI-assisted development for prototyping, debugging, feature planning, mobile usability, application logic, and deployment problem solving.</p><a class="link" href="https://tcgsignals.com" target="_blank" rel="noopener noreferrer">Visit tcgsignals.com ↗</a></div><div class="meta">Product · AI</div></article>'
+          if old in s:
+              s = s.replace(old, new, 1)
+          elif 'href="https://tcgsignals.com"' not in s:
+              raise SystemExit('TCG Signal project block not found; refusing unsafe edit')
+
+          p.write_text(s, encoding='utf-8')
+          PY
+      - name: Commit patch
+        shell: bash
+        run: |
+          if git diff --quiet -- index.html; then
+            echo 'No changes needed.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add index.html
+          git commit -m 'Fix TCG link and lock light theme'
+          git push
