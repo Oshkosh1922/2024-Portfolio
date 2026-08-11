@@ -1,0 +1,36 @@
+name: One-time restaurant repo link patch
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Add restaurant repo link
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('index.html')
+          s = p.read_text()
+          old = '<article class="project featured"><div class="num">02</div><div><h3>AI Restaurant Operations Platform</h3><p>An AI-first restaurant operations concept connecting sales, inventory, purchasing, forecasting, promotions, and management decisions while prioritizing integration with existing restaurant infrastructure instead of costly hardware replacement.</p></div><div class="meta">AI · Operations · Product</div></article>'
+          new = '<article class="project featured"><div class="num">02</div><div><h3>AI Restaurant Operations Platform</h3><p>An AI-first restaurant operations concept connecting sales, inventory, purchasing, forecasting, promotions, and management decisions while prioritizing integration with existing restaurant infrastructure instead of costly hardware replacement.</p><a class="link" href="https://github.com/Oshkosh1922/parpilot-ai" target="_blank" rel="noopener noreferrer">View GitHub repo ↗</a></div><div class="meta">AI · Operations · Product</div></article>'
+          if old not in s:
+              raise SystemExit('target block not found')
+          p.write_text(s.replace(old, new, 1))
+          PY
+      - name: Commit patch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git commit -m "Add restaurant project repo link"
+          git push
